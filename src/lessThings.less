@@ -1,0 +1,362 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&family=Ubuntu+Mono:wght@400;700&display=swap');
+
+/* @font-face kit by Fonts2u (https://fonts2u.com) */
+/* From https://fonts2u.com/minecraft-regular.font */
+@font-face {
+    font-family: "Minecraft Regular";
+    src: url("./assets/fonts/1_Minecraft-Regular.eot?") format("eot"),
+         url("./assets/fonts/1_Minecraft-Regular.woff") format("woff"),
+         url("./assets/fonts/1_Minecraft-Regular.ttf") format("truetype"),
+         url("./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Variables */
+:root {
+    /* Text */
+    --text: white;
+    --secondary-text: #c4c4c4;
+    --text-inverted: black;
+    --link: rgb(137, 184, 255);
+
+    /* Font */
+    --font: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font-click: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --font-button: Arial, Helvetica, sans-serif;
+    --font-x: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    /* Button */
+    --button-color:     white;
+    --button-bg:        transparent;
+
+    /* Backgrounds */
+    --bg:               #242222;
+    --bg-lighter:       #312e2e;
+    --bg-popup:         #353535;
+    --bg-darker:        #1f1d1d;
+    --border-color:     #4b4747;
+    /* --main-shop-hover:  #222020; */
+    
+    /* Semi-transparent */
+    --classic-tooltip-bg:rgba(0, 0, 0, 0.8);
+    --locked-bg:         rgba(0, 0, 0, 0.15);
+    --backdrop-color:    rgba(0, 0, 0, 0.5);
+
+    /* Tri-pane colors */
+    --alt-bg:           #4e3f34;
+    --alt-bg-darker:    #42362d;
+    --alt-bg-darkest:   #352a22;
+    --alt-bg-lighter:   #635145;
+
+    /* Misc */
+    --progress-light:   lightgreen;
+    --progress-dark:    rgb(94, 209, 94);
+    --gray:             gray;
+    --color-cash:       goldenrod;
+    --generic-blue:     #518ed4;
+    --golden-carrot:    #fae100;
+    --warning-red:      rgb(255, 65, 65);
+
+    /* --one: #cd72da;
+    --two: #fffd89;
+    --three: white;
+    --four: white; */
+}
+
+/* Universal */
+* {box-sizing: border-box;}
+body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+
+    margin: 0;
+    padding: 0;
+}
+
+p {margin: 0;}
+a {color: var(--link);}
+a:hover {filter: brightness(120%);}
+h2, h3 { margin: 0; }
+h4 { margin: 10px 0 0 0; }
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+}
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    touch-action: manipulation;
+    image-rendering: pixelated;
+    object-fit: cover;
+}
+
+/* Shorthand classes */
+.flex {display: flex;}
+.flex_1 {flex: 1;}
+.justify_center {justify-content: center;}
+.half_width {width: 50% !important;}
+.full_width {width: 100% !important;}
+.overflow_hidden {overflow: hidden !important;}
+.center { text-align: center; }
+.bold { font-weight: bold; }
+.unbold { font-weight: unset; }
+.underline { text-decoration: underline !important; }
+.bright_200 { filter: brightness(200%); }
+.no_border { border: none !important; }
+.render_pixelated { image-rendering: pixelated !important; }
+.opacity0 {opacity: 0 !important;}
+.position_absolute { position: absolute !important; }
+.position_unset { position: unset !important; }
+.transition_none { transition: none !important; }
+.pointer {cursor: pointer;}
+
+/* Fancy toggle */
+/* fancy toggle goes here */
+.link_styling {
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+        color: var(--text);
+    }
+}
+
+
+
+/* Status Bar */
+.status_bar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99 !important;
+    pointer-events: none;
+
+    * { pointer-events: all; }
+    .basic_info {
+        background-color: var(--bg-lighter);
+        border-bottom: 1px solid var(--border-color);
+    
+        width: 100%;
+        padding: 8px 20px;
+        padding-right: 50px;
+        padding-left: 50px;
+    
+        position: relative;
+        z-index: 99;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+
+        .main-icon-header{
+            font-size: 16px; 
+            margin: 0; 
+            padding-left: 2px;
+           
+            #main_icon {
+                height: 32px;
+                width: 32px;
+                position: absolute;
+                transform: translate(-38px, -6px);
+            }
+        }
+
+        #Tip { margin-left: auto; /* white-space: pre; */ }
+        /* Dropdown */
+        #info_dropdown {
+            cursor: pointer;
+            padding: 10px 12px 0 12px;
+            height: 100%;
+            border-left: 1px solid var(--border-color);
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            &:hover, &:active,&:focus { background-color: var(--border-color); }
+            &:focus {pointer-events: none;}
+        }
+        svg { max-height: 36px; }
+        .flex .menu_item { width: 119px; }
+    }
+}
+// Settings
+.hover_menu {
+    position: absolute;
+    z-index: -1;
+    top: calc(100% - 1px);
+    right: 0;
+
+    background-color: var(--bg-lighter);
+    border: 1px solid var(--border-color);
+    border-top: none;
+
+    min-width: 240px;
+
+    transition-property: transform, opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+
+    pointer-events: none;
+    transform: translateY(-20px);
+    opacity: 0;
+
+    * { pointer-events: none; }
+    :hover,:active,:focus,:focus-within{
+        pointer-events: all;
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+/*#info_dropdown:hover .hover_menu,
+#info_dropdown:active .hover_menu,*/
+#info_dropdown:focus .hover_menu,
+.hover_menu:hover,
+.hover_menu:active,
+.hover_menu:focus,
+.hover_menu:focus-within {
+    pointer-events: all;
+    transform: translateY(0px);
+    opacity: 1;
+}
+#info_dropdown:focus .hover_menu *,
+.hover_menu:hover *,
+.hover_menu:active *,
+.hover_menu:focus *,
+.hover_menu:focus-within * {
+    pointer-events: all;
+}
+.menu_item {
+    padding: 8px 12px 8px 36px;
+    position: relative;
+    text-align: left;
+}
+.hover_menu { box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.2); }
+.hover_menu a { text-decoration: none; }
+.menu_item:hover {background-color: var(--border-color);}
+.dropdown_img {
+    image-rendering: unset;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    opacity: 0.6;
+    width: 18px;
+}
+.menu_item:hover .dropdown_img { opacity: 1; }
+
+
+/* Container */
+#container {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    min-height: 738px;
+}
+
+//game section
+#game_section {
+    /* width: 100%; */
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+
+/* Carrot */
+#main_carrot {
+    margin: 15px;
+    width: 358px;
+    height: auto;
+    padding: 20px;
+    z-index: 0;
+
+    cursor: pointer;
+    filter: drop-shadow(12px 12px 5px rgba(0, 0, 0, 0.3));
+    image-rendering: unset;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+
+    /* Click animation */
+    transition-property: transform, filter;
+    transition-duration: 0.07s;
+    transition-timing-function: linear;
+
+    &:active {
+        transform: scale(0.96,0.96);
+        filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.3))
+                brightness(85%)
+                saturate(110%);
+    }
+}
+
+
+
+/* Mini stats */
+.mini_stats {
+    color: var(--secondary-text);
+    padding: 0 24px 12px;
+    position: relative;
+
+    .mini_item {
+        width: 100%;
+        min-height: 29px;
+        padding: 4px 8px;
+        margin-bottom: 6px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+    
+        background-color: var(--bg-lighter);
+        box-shadow: 0px 4px 12px rgb(0 0 0 / 20%);
+        transition-property: color, border-color;
+        transition-duration: 0.1s;
+
+        &:hover {
+            color: var(--text);
+            border-color: var(--border-color);
+        }
+
+        p { text-align: center; }
+    }
+}
+/* .mini_stats .row { justify-content: center; } */
+//.mini_stats p { text-align: center; }
+
+
+.mini_stats .mini_item:not(:last-child) { margin-right: 6px; }
+.mini_stats .mini_item img {
+    opacity: 0.8;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+.mini_stats .mini_item:hover img { opacity: 1; }
+.mini_stats .mini_item .mini_number {
+    color: var(--text);
+    float: right;
+}
+.mini_stats .Carrot_Count {
+    color: var(--text);
+    font-size: 20pt;
+    text-align: center;
+}
+
+
+/* 848px - mobile layout*/
+@media only screen and (max-width: 800px) {
+    /* Status bar */
+    .basic_info {
+        flex-direction: column;
+        text-align: center;
+        padding-right: 38px;
+        padding-left: 38px;
+    }
+}
