@@ -1,8 +1,12 @@
 import React from "react"
+//react
 import { useEffect, useState, useCallback, useRef } from "react";
-import { DisplayRounded } from "../carrot_utilities.mjs";
 
+//react components
 import GameInfoBox from "./GameInfoBox";
+
+//functions
+import { DisplayRounded } from "../carrot_utilities.mjs";
 
 //assets
 import carrotPNG from '../assets/Carrot Clicker.png'
@@ -123,27 +127,7 @@ export default function GameSection({Player,earnCarrots,settings={},cosmeticData
                     {/* <!-- CPS --> */}
                     <GameInfoBox png={clockPNG} name={"CPS"} info={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
                 </div><br/>
-
-                <div className="row flex">
-                    {/* <!-- Golden Carrots --> */}
-                    <GameInfoBox png={goldenCarrotPNG} name={"Golden Carrots:"} info={DisplayRounded(Player.golden_carrots)} tooltip={"Golden carrots are created when you prestige. Use them to buy tomes to give your farmers permanent buffs. Be sure to spend all of your golden carrots before you start farming!"}/>
-                    {/* <!-- Tome Pages --> */}
-                    <GameInfoBox png={tomePagePNG} name={"Tome Pages"} info={"..."}/>
-                </div>
-
-                <div className="row flex">
-                    {/* <!-- Coins --> */}
-                    <GameInfoBox png={cashPNG} name={"Coins"} info={"..."} tooltip={"While clicking the carrot there is a chance that coins will drop instead of carrots. Make sure to grab them!"}/>
-                </div>
-        </div>
-            {/* <!-- Buttons --> */}
-            <div className="main_buttons flex">
-                {/* <!-- Prestige button --> */}
-                <button onClick="openPrestigeMenu()" className="main_button_item" id="prestige_menu_button" data-tooltip="???" disabled >
-                    <img src={questonMarkSVG} alt="Prestige" className="main_button_img" id="prestige_menu_button_img"/>
-                </button>
-                {/* <!-- Inventory button --> */}
-                <button onClick="openInventory()" data-tooltip="Inventory" className="main_button_item" id="inventory_button">
+                <button>
                     <img src={backpackSVG} alt="Inventory" className="main_button_img" id="inventory_button_img"/>
                 </button> 
                 {/* <!-- Tips button --> */}

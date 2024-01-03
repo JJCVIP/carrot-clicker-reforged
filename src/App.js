@@ -1,13 +1,15 @@
 import './App.css';
 
-//React Things
+//React Hooks
 import { useState, useCallback, useEffect, useRef } from 'react';
+
 //React Components
 import StatusBar from './React-Components/StatusBar';
 import GameSection from './React-Components/GameSection';
+import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
-//import defaults
+//import objects
 import { default_player, default_settings } from './defaultObjects.mjs';
 
 //functions
@@ -65,6 +67,9 @@ function App() {
 
         {/* The Game Section */}
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
+        {/* Characters */}
+        <div id="characters" className="anchor_offset"></div>
+        <CharacterSection/>
       </div>
     </div>
   );

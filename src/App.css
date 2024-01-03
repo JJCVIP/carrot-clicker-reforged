@@ -1,24 +1,24 @@
  /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rowdies&family=Ubuntu+Mono:wght@400;700&display=swap');
-
-/* @font-face kit by Fonts2u (https://fonts2u.com) */
-/* From https://fonts2u.com/minecraft-regular.font */
-@font-face {
-    font-family: "Minecraft Regular";
-    src: url("./assets/fonts/1_Minecraft-Regular.eot?") format("eot"),
-         url("./assets/fonts/1_Minecraft-Regular.woff") format("woff"),
-         url("./assets/fonts/1_Minecraft-Regular.ttf") format("truetype"),
-         url("./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Variables */
-:root {
-    /* Text */
-    --text: white;
-    --secondary-text: #c4c4c4;
+ @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Rowdies&family=Ubuntu+Mono:wght@400;700&display=swap');
+ 
+ /* @font-face kit by Fonts2u (https://fonts2u.com) */
+ /* From https://fonts2u.com/minecraft-regular.font */
+ @font-face {
+     font-family: "Minecraft Regular";
+     src: url("./assets/fonts/1_Minecraft-Regular.eot?") format("eot"),
+          url("./assets/fonts/1_Minecraft-Regular.woff") format("woff"),
+          url("./assets/fonts/1_Minecraft-Regular.ttf") format("truetype"),
+          url("./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular") format("svg");
+     font-weight: normal;
+     font-style: normal;
+ }
+ 
+ /* Variables */
+ :root {
+     /* Text */
+     --text: white;
+     --secondary-text: #c4c4c4;
     --text-inverted: black;
     --link: rgb(137, 184, 255);
 
@@ -2461,9 +2461,42 @@ footer .user_card { text-decoration: none !important; }
 }
 /* #credits.visible { opacity: 1; } */
 
+/* JJ needed to move inline styles */
+#boost-modifiers{
+    width: 100%; 
+    background: none; 
+    box-shadow: none; 
+    padding-left: 0;
+}
 
-
-
+.two-pixel-margin-top{
+    margin-top: 2px;
+}
+.charles_prestige_button{
+    width: 280px; 
+    margin-left: 2px;
+}
+.golden-Carrot-Research{
+    padding: 4px;
+     margin-top: 8px;
+}
+.jared-trinket-image{
+    height: 48px; 
+    width: 48px;
+}
+.jared-shop-boost{
+    width: 100%; 
+    background: none; 
+    box-shadow: none; 
+    padding-left: 0
+}
+.themeSwitcher{
+    width: 140px; 
+    margin-left: 2px;
+}
+.cosmeticSwitcher{
+    width: 140px;
+}
 /* Pinned Dev panel */
 /* #devp .footer_bottom {
     position: fixed;
