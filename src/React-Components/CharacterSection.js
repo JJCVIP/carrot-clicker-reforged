@@ -1,6 +1,11 @@
+//react components
 import InfoButton from "./InfoButton"
+import CharacterBox from "./CharacterBox"
 
-export default function CharacterSection() {
+//assets
+import BillPNG from "../assets/characters/Bill.png"
+
+export default function CharacterSection({Bill}) {
     return (
         <section id="character_section">
 
@@ -33,6 +38,7 @@ export default function CharacterSection() {
                 </div>
 
                 {/* <!--Boomer Bill Rendering--> */}
+                <CharacterBox character={Bill}/>
                 <div className="Bill characterbox box" id="bill_box">
                     <div className="char_info" id="bill_info">
                         <h2>Bill</h2>

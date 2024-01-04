@@ -10,8 +10,8 @@ export default class Farmer extends Character{
      * @param {Array} scaling the way the level up prices scale
      * @param {Array} Hoes Blank hoe array
      */
-    constructor(nickname,img,lvl,lvlupPrice,scaling,Hoes){
-        super(nickname,img);
+    constructor(name,nickname,img,lvl,lvlupPrice,scaling,Hoes){
+        super(name,nickname,img);
         this.lvl=lvl;
         this.lvlupPrice=lvlupPrice;
         this.scaling=scaling;

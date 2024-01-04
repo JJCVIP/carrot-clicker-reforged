@@ -4,15 +4,10 @@ export default class Character{
      * @param {String} nickname Shortened name
      * @param {String} img the Image of the Character
      */
-    constructor(nickname, img) {
+    constructor(name, nickname, img) {
+        this.name= name;
         this.nickname=nickname;
         this.img=img;
         this.version=1;
-    }
-    unlock(){
-        //possibly a method to unlock the characters
-    }
-    lock(){
-        //possibly a method to lock the characters
     }
 }

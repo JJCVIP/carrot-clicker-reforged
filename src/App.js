@@ -10,7 +10,7 @@ import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
 //import objects
-import { default_player, default_settings } from './defaultObjects.mjs';
+import { default_player, default_settings, default_Boomer_Bill } from './defaultObjects.mjs';
 
 //functions
 import { DisplayRounded } from './carrot_utilities.mjs';
@@ -24,9 +24,12 @@ import tomePagePNG from "./assets/items/tome_page.png"
 import cashPNG from "./assets/cash.png"
 
 function App() {
-  //setting State objects
+  /*-----setting State objects-----*/
   const [Player, setPlayer]     = useState(default_player);
   const [Settings, setSettings] = useState(default_settings);
+  //characters
+  const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill)
+
 
   /**
    * The function that rewards the player with carrots
@@ -69,7 +72,7 @@ function App() {
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
         {/* Characters */}
         <div id="characters" className="anchor_offset"></div>
-        <CharacterSection/>
+        <CharacterSection Bill={Boomer_Bill}/>
       </div>
     </div>
   );

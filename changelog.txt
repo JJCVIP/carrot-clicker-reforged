@@ -1,8 +1,15 @@
 // ----------------------------------------------------------- //
+    Version reforged alpha 1.03.1
+    1/3/24
+// ----------------------------------------------------------- //
+    added Character box JSX
+    started work on making Bill Character
+
+// ----------------------------------------------------------- //
     Version reforged alpha 1.03
     1/3/24
 // ----------------------------------------------------------- //
-    added CharacterS3ection JSX
+    added CharacterSection JSX
 
 // ----------------------------------------------------------- //
     Version reforged alpha 1.02

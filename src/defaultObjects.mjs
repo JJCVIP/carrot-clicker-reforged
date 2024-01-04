@@ -1,7 +1,9 @@
 import Player from "./classes/Player.mjs";
+import Farmer from "./classes/Farmer.mjs";
 import statsTracker from "./classes/StatsTracker.mjs"
 import { clone } from "./carrot_utilities.mjs";
 
+import billPNG from "./assets/characters/Bill.png"
 
 export const playerPrestigeTemplate = {
     carrots: 0,
@@ -249,3 +251,20 @@ export const default_tips = {
         fun_advanced: {},
     }
 }
+
+//Boomer Bill
+export const default_Boomer_Bill = new Farmer(
+    "Boomer Bill", //name
+    "Bill", //Nickname
+    billPNG, //avatar (img)
+    1, //lvl (integer)
+    100, //lvl up price (float)
+    [ // Price scaling
+        { min: 1,   modifier: 0.11  },
+        { min: 75,  modifier: 0.13  },
+        { min: 100, modifier: 0.09  },
+        { min: 300, modifier: 0.08  },
+        { min: 500, modifier: 0.065 },
+    ],
+    [0,0,0,0,0,0] //Hoe Array
+)
