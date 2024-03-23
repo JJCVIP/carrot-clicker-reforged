@@ -20,7 +20,7 @@ import backpackSVG from "../assets/icons/backpack.svg"
 import lightBulbSVG from "../assets/icons/lightbulb.svg"
 import medalPNG from "../assets/icons/medal.png"
 
-export default function GameSection({Player,earnCarrots,settings={},cosmeticData={}}){
+export default function GameSection({Player, earnCarrots,settings={},cosmeticData={}}){
     // Store click speed
     const [clickSpeed, setClickSpeed] = useState(0);
     const [bestClickSpeed, setBestClickSpeed] = useState(0);

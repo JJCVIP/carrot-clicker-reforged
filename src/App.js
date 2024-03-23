@@ -10,25 +10,21 @@ import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
 //import objects
-import { default_player, default_settings, default_Boomer_Bill } from './defaultObjects.mjs';
+import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette} from './defaultObjects.mjs';
 
 //functions
-import { DisplayRounded } from './carrot_utilities.mjs';
+import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
 
-//assets
-import carrotPNG from './assets/Carrot Clicker.png'
-import whiteCursorPNG from './assets/stats/cursor_white.png'
-import clockPNG from './assets/stats/clock.png'
-import goldenCarrotPNG from "./assets/golden carrot.png"
-import tomePagePNG from "./assets/items/tome_page.png"
-import cashPNG from "./assets/cash.png"
 
 function App() {
   /*-----setting State objects-----*/
   const [Player, setPlayer]     = useState(default_player);
   const [Settings, setSettings] = useState(default_settings);
+
   //characters
-  const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill)
+  const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill);
+  const [Belle_Boomerette, setBelle_Boomerette] = useState(default_Belle_Boomerette)
+  const [Greg, setGreg] = useState(default_Greg);
 
 
   /**
@@ -59,6 +55,48 @@ function App() {
     // Bonus
     //if(type === 'bonus') popupHandler(useMousePos, DisplayRounded(amount, 1), 'falling');
   }
+  function levelUp(character,amount){
+    const totalCost=getLevelPrice(character,amount,null,null)
+    console.log(totalCost)
+    if(Player.carrots<totalCost) return
+    const characterMap = {
+      Boomer_Bill : setBoomer_Bill,
+      Belle_Boomerette : setBelle_Boomerette
+    }
+    characterMap['Boomer_Bill'](
+      {...character, lvl:character.lvl+amount}
+    )
+    setPlayer(
+      {...Player, carrots:Player.carrots-=totalCost}
+    )
+    //temp setPlayerCpc
+    setPlayer(
+      {...Player, cpc:Boomer_Bill.lvl+1}
+    )
+  }
+
+
+
+  /**
+   * 
+   * @param {*} character 
+   * @param {*} tool 
+   * @param {*} amount 
+   * @returns 
+   */
+  function equipTool(character,tool,amount){
+    if(Greg.Hoes[tool]<amount) return
+    
+    const characterMap = {
+      Boomer_Bill : setBoomer_Bill,
+      Belle_Boomerette : setBelle_Boomerette
+    }
+    characterMap[character.name](
+      {...character, Hoes:(character.Hoes.toSpliced(tool,1,character.Hoes[tool]+amount))}
+    );
+    setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]-amount)})
+  }
+
 
   return (
     <div className="App">
@@ -72,7 +110,7 @@ function App() {
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
         {/* Characters */}
         <div id="characters" className="anchor_offset"></div>
-        <CharacterSection Bill={Boomer_Bill}/>
+        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
       </div>
     </div>
   );

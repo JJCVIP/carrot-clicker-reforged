@@ -176,3 +176,64 @@ export function r(max) { return Math.floor(Math.random() * max); }
  */
 export function clone(obj) { return JSON.parse(JSON.stringify(obj)); }
 
+/**
+ * 
+ * @param {object} character 
+ * @param {number} total Items in Array
+ * @param {Charles} Charles 
+ * @param {Jared} Jared 
+ * @version 1.0
+ * @author JJCVIP
+ * @returns PriceArray
+ */
+export function createPriceArray(character, totalItems, Charles, Jared){
+    // Character Scaling, Charles, Jared
+
+    //creates new array
+    let priceArray = []
+    for(let index = 0; index<totalItems; index++){
+        //set Base Price
+        if(index===0){priceArray.push(character.basePrice)}
+        //set Bill level 1 price to Base price
+        else if(index===1 && character.name==="Boomer_Bill"){priceArray.push(character.basePrice)}
+        //Apply scalling and modifiers
+        else {
+            //for loop to select which scalar to use based on the level
+            for(let i=character.scaling.length-1; i>= 0; i--){
+                //continue clause to select the right scalar object
+                if(index<character.scaling[i].min) continue;
+
+                //calculates the next level and pushes it to the array
+                const push = Math.floor(priceArray[index-1]*(1+character.scaling[i].modifier));
+                priceArray.push(push)
+                break;
+            }
+
+        }
+    }
+
+    //returns the price array
+    return priceArray;
+}
+
+
+/** Calculates and returns a character's level up price at a given level
+ * @param {object} character Character object
+ * @param {number} level current level
+ * @param {number} amount levels you want to add
+ * @returns New character level up price
+ */
+export function getLevelPrice(character, level=1, amount=1,Charles,Jared) {
+    // Creates a new price array from the create array function
+    const priceArray = createPriceArray(character,level+amount,Charles,Jared);
+    console.log(priceArray);
+    //adds the appropriate value of array items to get a price
+    let sum = 0;
+    for(let i=level-1;i<level+amount;i++){ 
+        console.log("leverl",level)
+        console.log(i,"sheer")
+        sum+=priceArray[i];
+        console.log(priceArray[i]);
+    };
+    return sum;
+}

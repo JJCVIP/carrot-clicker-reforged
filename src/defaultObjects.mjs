@@ -1,9 +1,16 @@
+//classes
 import Player from "./classes/Player.mjs";
 import Farmer from "./classes/Farmer.mjs";
+import Blacksmith from "./classes/Blacksmith.mjs";
 import statsTracker from "./classes/StatsTracker.mjs"
+
+//Functioms
 import { clone } from "./carrot_utilities.mjs";
 
-import billPNG from "./assets/characters/Bill.png"
+//assets
+import billPNG from "./assets/characters/Bill.png";
+import bellePNG from "./assets/characters/Belle.png";
+import gregPNG from "./assets/characters/Greg.png";
 
 export const playerPrestigeTemplate = {
     carrots: 0,
@@ -254,11 +261,14 @@ export const default_tips = {
 
 //Boomer Bill
 export const default_Boomer_Bill = new Farmer(
-    "Boomer Bill", //name
+    "Boomer_Bill", //name -- for refrence in code, if you want to display name use .fullName
+    "Boomer Bill", //Full Name
     "Bill", //Nickname
     billPNG, //avatar (img)
+    false, //Wether Locked or not
     1, //lvl (integer)
     100, //lvl up price (float)
+    100, //Base price
     [ // Price scaling
         { min: 1,   modifier: 0.11  },
         { min: 75,  modifier: 0.13  },
@@ -266,5 +276,48 @@ export const default_Boomer_Bill = new Farmer(
         { min: 300, modifier: 0.08  },
         { min: 500, modifier: 0.065 },
     ],
-    [0,0,0,0,0,0] //Hoe Array
+    [0,1,2,3,0,5] //Hoe Array
+)
+
+//Boomer Bill
+export const default_Belle_Boomerette = new Farmer(
+    "Belle_Boomerette", //name -- for refrence in code, if you want to display name use .fullName
+    "Belle Boomerette", //Full Name
+    "Belle", //Nickname
+    bellePNG, //avatar (img)
+    false, //Wether Locked or not
+    0, //lvl (integer)
+    250, //lvl up price (float)
+    250, //Base Price
+    [ // Price scaling
+        { min: 0,   modifier: 0.058 },
+        { min: 100, modifier: 0.11  },
+        { min: 125, modifier: 0.07  },
+        { min: 200, modifier: 0.08  },
+    ],
+    [0,0,0,0,0,0], //Hoe Array
+)
+
+//Greg
+export const default_Greg = new Blacksmith(
+    "Greg", //name -- for refrence in code, if you want to display name use .fullName
+    "Greg The Black", //Full Name
+    "Greg", //Nickname
+    gregPNG, //avatar (img)
+    false, //Wether Locked or not
+    0, //lvl (int)
+    5000, //lvl up price (float)
+    5000, //basePrice
+    [ // Price scaling
+        { min: 0,   modifier: 0.17706 },
+        { min: 25,  modifier: 0.1874  },
+        { min: 50,  modifier: 0.227   },
+        { min: 75,  modifier: 0.284   },
+        { min: 100, modifier: 0.409   },
+        { min: 125, modifier: 0.25    },
+    ],
+    [5,0,0,0,0,10], //Hoe Array
+    [15000,750000,55000000,9000000000,5000000000000,25000000000000000], //Hoe Pricing
+    false, //Currently Crafting
+
 )

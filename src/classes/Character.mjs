@@ -4,10 +4,12 @@ export default class Character{
      * @param {String} nickname Shortened name
      * @param {String} img the Image of the Character
      */
-    constructor(name, nickname, img) {
+    constructor(name, fullName, nickname, img, locked) {
         this.name= name;
+        this.fullName=fullName;
         this.nickname=nickname;
         this.img=img;
         this.version=1;
+        this.locked=locked;
     }
 }

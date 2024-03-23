@@ -3,9 +3,9 @@ import InfoButton from "./InfoButton"
 import CharacterBox from "./CharacterBox"
 
 //assets
-import BillPNG from "../assets/characters/Bill.png"
 
-export default function CharacterSection({Bill}) {
+
+export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}) {
     return (
         <section id="character_section">
 
@@ -38,59 +38,8 @@ export default function CharacterSection({Bill}) {
                 </div>
 
                 {/* <!--Boomer Bill Rendering--> */}
-                <CharacterBox character={Bill}/>
-                <div className="Bill characterbox box" id="bill_box">
-                    <div className="char_info" id="bill_info">
-                        <h2>Bill</h2>
-                        <p className="secondary_text">- Farmer -</p>
-                        <hr/>
-                        <p>Upgrading Bill will increase your carrots per click (CPC) by one.</p>
-
-                    </div>
-                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabindex="0" role="button" />
-                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('bill')" tabindex="0" role="button" />
-
-                    {/* <!-- Top --> */}
-                    <div className="top flex">
-                        <img
-                            src="./assets/characters/Bill.png"
-                            alt="Boomer Bill"
-                            id="bill_avatar"
-                            className="characterimg"
-                            title="Boomer Bill"
-                            onclick="characterInfo('bill')" />
-
-                        <div className="characterdesc">
-                            <b id="bill_name" className="character_name">Bill</b>
-                            <p>Upgrade cost: <span id="UpBillCost" className="upgrade_cost white">-</span></p>
-                            <p>Level: <input type="text" value="-" id="Bill_lvl" className="discreet dev_input" autocomplete="off" disabled /></p>
-                        </div>
-                    </div>
-
-                    {/* <!-- Bottom --> */}
-                    <div className="bottom">
-
-                        <img src="./assets/icons/lvl_up_arrow.png" id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onclick="levelUp(Boomer_Bill,multibuy[mbsel])" title="Level up" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_0_number">err</p>
-                        <img src="./assets/tools/tool_0.png" onclick="equipTool(Boomer_Bill,0,multibuy[mbsel])" className="toolicon blackedout tool_0" id="bill_tool_0" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_1_number">err</p>
-                        <img src="./assets/tools/tool_1.png" onclick="equipTool(Boomer_Bill,1,multibuy[mbsel])" className="toolicon blackedout tool_1" id="bill_tool_1" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_2_number">err</p>
-                        <img src="./assets/tools/tool_2.png" onclick="equipTool(Boomer_Bill,2,multibuy[mbsel])" className="toolicon blackedout tool_2" id="bill_tool_2" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_3_number">err</p>
-                        <img src="./assets/tools/tool_3.png" onclick="equipTool(Boomer_Bill,3,multibuy[mbsel])" className="toolicon blackedout tool_3" id="bill_tool_3" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_4_number">err</p>
-                        <img src="./assets/tools/tool_4.png" onclick="equipTool(Boomer_Bill,4,multibuy[mbsel])" className="toolicon blackedout tool_4" id="bill_tool_4" tabindex="0" role="button" />
-
-                        <p className="toolnumber" id="bill_tool_5_number">err</p>
-                        <img src="./assets/tools/tool_5.png" onclick="equipTool(Boomer_Bill,5,multibuy[mbsel])" className="toolicon blackedout tool_5" id="bill_tool_5" tabindex="0" role="button" />
-                    </div>
-                </div>
+                <CharacterBox character={Bill} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
+                <CharacterBox character={Belle} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
                 {/* <!-- #endregion --> */}
 
                 {/* <!--Belle Boomerette Rendering--> */}
