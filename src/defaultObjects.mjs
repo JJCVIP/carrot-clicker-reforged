@@ -1,16 +1,15 @@
-//classes
+// Game classes
 import Player from "./classes/Player.mjs";
 import Farmer from "./classes/Farmer.mjs";
 import Blacksmith from "./classes/Blacksmith.mjs";
 import statsTracker from "./classes/StatsTracker.mjs"
 
-//Functioms
+// Functioms
 import { clone } from "./carrot_utilities.mjs";
 
-//assets
-import billPNG from "./assets/characters/Bill.png";
-import bellePNG from "./assets/characters/Belle.png";
-import gregPNG from "./assets/characters/Greg.png";
+// Assets
+import { billPNG, bellePNG, gregPNG } from "./assets/assets.js";
+
 
 export const playerPrestigeTemplate = {
     carrots: 0,

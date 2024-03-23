@@ -27,8 +27,15 @@ export { default as clockPNG }          from './stats/clock.png'
 export { default as goldenCarrotPNG }   from "./golden carrot.png"
 export { default as tomePagePNG }       from "./items/tome_page.png"
 
+
+
 // Farmables
 export { default as carrotPNG }         from './Carrot Clicker.png'
+
+// Characters
+export { default as billPNG } from "./characters/Bill.png"
+export { default as bellePNG } from "./characters/Belle.png"
+export { default as gregPNG } from "./characters/Greg.png"
 
 // Tools
 export const toolPNGs = {
