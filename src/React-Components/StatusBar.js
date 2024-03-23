@@ -1,8 +1,10 @@
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
-import pixel_carrot_32x from "../assets/pixel_carrot_32x.png";
+// Assets
+import { pixel_carrot_32x } from "../assets/assets"
 
+// Components
 import NavMenu from "./NavMenu";
 import { default_tips } from "../defaultObjects.mjs";
 

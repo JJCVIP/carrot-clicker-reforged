@@ -8,17 +8,10 @@ import GameInfoBox from "./GameInfoBox";
 //functions
 import { DisplayRounded } from "../carrot_utilities.mjs";
 
-//assets
-import carrotPNG from '../assets/Carrot Clicker.png'
-import whiteCursorPNG from '../assets/stats/cursor_white.png'
-import clockPNG from '../assets/stats/clock.png'
-import goldenCarrotPNG from "../assets/golden carrot.png"
-import tomePagePNG from "../assets/items/tome_page.png"
-import cashPNG from "../assets/cash.png"
-import questonMarkSVG from "../assets/icons/question_mark.svg"
-import backpackSVG from "../assets/icons/backpack.svg"
-import lightBulbSVG from "../assets/icons/lightbulb.svg"
-import medalPNG from "../assets/icons/medal.png"
+// Assets
+import {
+    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG
+} from "../assets/assets"
 
 export default function GameSection({Player, earnCarrots,settings={},cosmeticData={}}){
     // Store click speed
