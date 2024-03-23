@@ -1,20 +1,34 @@
+// Gameplay Icons
+export { default as pixel_carrot_32x }  from "./pixel_carrot_32x.png"
+export { default as medalPNG }          from "./icons/medal.png"
+export { default as levelUpPNG }        from "./icons/lvl_up_arrow.png"
+export { default as cashPNG }           from "./cash.png"
+
 // UI Icons
-export { default as pixel_carrot_32x }  from "../assets/pixel_carrot_32x.png";
-export { default as palleteSVG }        from "./icons/palette.svg";
-export { default as infoSVG }           from "./icons/info.svg";
-export { default as levelUpPNG }        from "./icons/lvl_up_arrow.png";
-export { default as whiteCursorPNG }    from '../assets/stats/cursor_white.png'
-export { default as clockPNG }          from '../assets/stats/clock.png'
-export { default as goldenCarrotPNG }   from "../assets/golden carrot.png"
-export { default as tomePagePNG }       from "../assets/items/tome_page.png"
-export { default as cashPNG }           from "../assets/cash.png"
-export { default as questonMarkSVG }    from "../assets/icons/question_mark.svg"
-export { default as backpackSVG }       from "../assets/icons/backpack.svg"
-export { default as lightBulbSVG }      from "../assets/icons/lightbulb.svg"
-export { default as medalPNG }          from "../assets/icons/medal.png"
+export { default as settingsSVG }       from "./icons/settings.svg"
+export { default as paletteSVG }        from "./icons/palette.svg"
+export { default as cosmeticSVG }       from "./icons/cosmetic.svg"
+export { default as infoSVG }           from "./icons/info.svg"
+export { default as questonMarkSVG }    from "./icons/question_mark.svg"
+export { default as padlockSVG }        from "./icons/padlock.svg" 
+export { default as volumeSVG }         from "./icons/volume.svg"
+export { default as refreshSVG }        from "./icons/refresh.svg"
+export { default as externalSVG }       from "./icons/external.svg"
+
+export { default as githubPNG }         from "./icons/github.png"
+
+// Button bar
+export { default as backpackSVG }       from "./icons/backpack.svg"
+export { default as lightBulbSVG }      from "./icons/lightbulb.svg"
+
+// Mini info
+export { default as whiteCursorPNG }    from './stats/cursor_white.png'
+export { default as clockPNG }          from './stats/clock.png'
+export { default as goldenCarrotPNG }   from "./golden carrot.png"
+export { default as tomePagePNG }       from "./items/tome_page.png"
 
 // Farmables
-export { default as carrotPNG }         from '../assets/Carrot Clicker.png'
+export { default as carrotPNG }         from './Carrot Clicker.png'
 
 // Tools
 export const toolPNGs = {
