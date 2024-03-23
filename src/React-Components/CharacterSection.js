@@ -40,6 +40,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                 {/* <!--Boomer Bill Rendering--> */}
                 <CharacterBox character={Bill} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
                 <CharacterBox character={Belle} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
+                <CharacterBox character={Greg} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
                 {/* <!-- #endregion --> */}
 
                 {/* <!--Belle Boomerette Rendering--> */}

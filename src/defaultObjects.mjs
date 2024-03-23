@@ -303,8 +303,8 @@ export const default_Greg = new Blacksmith(
     "Greg", //name -- for refrence in code, if you want to display name use .fullName
     "Greg The Black", //Full Name
     "Greg", //Nickname
-    gregPNG, //avatar (img)
     false, //Wether Locked or not
+    gregPNG, //avatar (img)
     0, //lvl (int)
     5000, //lvl up price (float)
     5000, //basePrice

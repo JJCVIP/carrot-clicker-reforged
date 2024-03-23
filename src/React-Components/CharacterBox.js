@@ -28,6 +28,7 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
     const tool4Classes = (character.Hoes[4]>0 ? " " : "blackedout ") + (Greg.Hoes[4]>0 ? "glowing" : "");
     const tool5Classes = (character.Hoes[5]>0 ? " " : "blackedout ") + (Greg.Hoes[5]>0 ? "glowing" : "");
 
+    console.log(character);
     return(
     <>
     <div className={`Bill characterbox box ${characterLockedClass}`} id="bill_box">

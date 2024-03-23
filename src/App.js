@@ -94,8 +94,6 @@ function App() {
     )
   }
 
-
-
   /**
    * 
    * @param {Character} character to be equipped
@@ -104,6 +102,7 @@ function App() {
    * @version 1.0
    * @returns 
    */
+  
   function equipTool(character,tool,amount){
     //If Greg does not have the number of tools that are being requested return
     if(Greg.Hoes[tool]<amount) return;
