@@ -23,8 +23,8 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
             <p>Upgrading Bill will increase your carrots per click (CPC) by one.</p>
 
         </div>
-        <img src={palleteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabindex="0" role="button" />
-        <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('bill')" tabindex="0" role="button" />
+        <img src={palleteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
+        <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('bill')" tabIndex="0" role="button" />
 
         {/* <!-- Top --> */}
         <div className="top flex">
@@ -46,7 +46,7 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
         {/* <!-- Bottom --> */}
         <div className="bottom">
 
-            <img src={levelUpPNG} id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onClick={()=>{levelUp(character,1)}} title="Level up" tabindex="0" role="button" />
+            <img src={levelUpPNG} id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onClick={()=>{levelUp(character,1)}} title="Level up" tabIndex="0" role="button" />
 
             {/* Tools */}
             {
@@ -60,7 +60,7 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
                                 toolicon tool_${index}
                                 ${(amount>0 ? " " : "blackedout ") + (Greg.Hoes[index]>0 ? "glowing" : "")}
                             `}
-                            id={`bill_tool_${index}`} tabindex="0" role="button" alt="PLACEHOLDER"
+                            id={`bill_tool_${index}`} tabIndex="0" role="button" alt="PLACEHOLDER"
                         />
                     </>
                 )

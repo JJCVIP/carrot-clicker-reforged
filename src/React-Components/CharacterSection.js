@@ -15,7 +15,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                 {/* <!-- Powers --> */}
                 <div id="powers_container" className="box flex">
                     <div className="mb_vr">
-                        <div id="multibuy" className="power_item link_styling bold secondary_text" title="Purchase multiplier - Click to cycle" onclick="multibuySpin()" tabindex="0" role="button">
+                        <div id="multibuy" className="power_item link_styling bold secondary_text" title="Purchase multiplier - Click to cycle" onclick="multibuySpin()" tabIndex="0" role="button">
                             1x
                         </div>
                     </div>
@@ -33,7 +33,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                     </div>
 
                     {/* <!-- Info button --> */}
-                    {/* <span tabindex="0" className="question_mark" title="Boosts will not be remembered if the game is closed" onclick="toast(...toasts.info_boosts)" style="padding-right: 10px; margin-left: auto;">?</span> */}
+                    {/* <span tabIndex="0" className="question_mark" title="Boosts will not be remembered if the game is closed" onclick="toast(...toasts.info_boosts)" style="padding-right: 10px; margin-left: auto;">?</span> */}
                     <InfoButton title="Boosts will not be remembered if the game is closed" toast="info_boosts"/>
                 </div>
 
@@ -50,8 +50,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                         <hr />
                         Upgrading Belle will increase your carrots per second (CPS) by one.
                     </div>
-                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('belle')" tabindex="0" role="button" />
-                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('belle')" tabindex="0" role="button" />
+                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('belle')" tabIndex="0" role="button" />
+                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('belle')" tabIndex="0" role="button" />
 
                     {/* <!-- Top --> */}
                     <div className="top flex">
@@ -73,25 +73,25 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                     {/* <!-- Bottom --> */}
                     <div className="bottom">
 
-                        <img src="./assets/icons/lvl_up_arrow.png" id="belle_level_up" alt="Upgrade Belle Boomerette" onclick="levelUp(Belle_Boomerette,multibuy[mbsel])" className="levelupimg" title="Level up" tabindex="0" role="button" />
+                        <img src="./assets/icons/lvl_up_arrow.png" id="belle_level_up" alt="Upgrade Belle Boomerette" onclick="levelUp(Belle_Boomerette,multibuy[mbsel])" className="levelupimg" title="Level up" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_0_number">err</p>
-                        <img src="./assets/tools/tool_0.png" onclick="equipTool(Belle_Boomerette,0,multibuy[mbsel])" className="toolicon blackedout tool_0" id="belle_tool_0" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_0.png" onclick="equipTool(Belle_Boomerette,0,multibuy[mbsel])" className="toolicon blackedout tool_0" id="belle_tool_0" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_1_number">err</p>
-                        <img src="./assets/tools/tool_1.png" onclick="equipTool(Belle_Boomerette,1,multibuy[mbsel])" className="toolicon blackedout tool_1" id="belle_tool_1" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_1.png" onclick="equipTool(Belle_Boomerette,1,multibuy[mbsel])" className="toolicon blackedout tool_1" id="belle_tool_1" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_2_number">err</p>
-                        <img src="./assets/tools/tool_2.png" onclick="equipTool(Belle_Boomerette,2,multibuy[mbsel])" className="toolicon blackedout tool_2" id="belle_tool_2" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_2.png" onclick="equipTool(Belle_Boomerette,2,multibuy[mbsel])" className="toolicon blackedout tool_2" id="belle_tool_2" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_3_number">err</p>
-                        <img src="./assets/tools/tool_3.png" onclick="equipTool(Belle_Boomerette,3,multibuy[mbsel])" className="toolicon blackedout tool_3" id="belle_tool_3" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_3.png" onclick="equipTool(Belle_Boomerette,3,multibuy[mbsel])" className="toolicon blackedout tool_3" id="belle_tool_3" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_4_number">err</p>
-                        <img src="./assets/tools/tool_4.png" onclick="equipTool(Belle_Boomerette,4,multibuy[mbsel])" className="toolicon blackedout tool_4" id="belle_tool_4" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_4.png" onclick="equipTool(Belle_Boomerette,4,multibuy[mbsel])" className="toolicon blackedout tool_4" id="belle_tool_4" tabIndex="0" role="button" />
 
                         <p className="toolnumber" id="belle_tool_5_number">err</p>
-                        <img src="./assets/tools/tool_5.png" onclick="equipTool(Belle_Boomerette,5,multibuy[mbsel])" className="toolicon blackedout tool_5" id="belle_tool_5" tabindex="0" role="button" />
+                        <img src="./assets/tools/tool_5.png" onclick="equipTool(Belle_Boomerette,5,multibuy[mbsel])" className="toolicon blackedout tool_5" id="belle_tool_5" tabIndex="0" role="button" />
                     </div>
 
                 </div>
@@ -103,8 +103,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                         <p className="secondary_text">- Blacksmith -</p><hr />
                         Upgrade Greg to create and store tools. The maximum amount of tools he and the other characters can hold is equal to his level.
                     </div>
-                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('greg')" tabindex="0" role="button" />
-                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('greg')" tabindex="0" role="button" />
+                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('greg')" tabIndex="0" role="button" />
+                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('greg')" tabIndex="0" role="button" />
 
                     {/* <!-- Top --> */}
                     <div className="top flex">
@@ -124,7 +124,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
 
                     {/* <!-- Bottom --> */}
                     <div className="bottom secondary_text">
-                        <img src="./assets/icons/lvl_up_arrow.png" id="greg_level_up" alt="Upgrade Greg" onclick="levelUp(Gregory,multibuy[mbsel])" className="levelupimg" title="Level up" tabindex="0" role="button" />
+                        <img src="./assets/icons/lvl_up_arrow.png" id="greg_level_up" alt="Upgrade Greg" onclick="levelUp(Gregory,multibuy[mbsel])" className="levelupimg" title="Level up" tabIndex="0" role="button" />
 
                         {/* <!-- Crafting display --> */}
                         <div className="darker_bg_color inactive" title="Idle" id="greg_crafting_info">
@@ -136,32 +136,32 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                         <span className="tool blackedout" data-tooltip="Hoe" id="greg_tool_0">
                             <span className="tool_price" data-tool-id="0">tool_0</span>
                             <p className="toolnumber" id="greg_tool_0_number">err</p>
-                            <img src="./assets/tools/tool_0.png" className="toolicon greg_margin_fix tool_0" onclick="createTool(0,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_0.png" className="toolicon greg_margin_fix tool_0" onclick="createTool(0,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
                         <span className="tool blackedout" data-tooltip="Sturdy Hoe" id="greg_tool_1">
                             <span className="tool_price" data-tool-id="1">tool_1</span>
                             <p className="toolnumber" id="greg_tool_1_number">err</p>
-                            <img src="./assets/tools/tool_1.png" className="toolicon tool_1" onclick="createTool(1,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_1.png" className="toolicon tool_1" onclick="createTool(1,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
                         <span className="tool blackedout" data-tooltip="Scythe" id="greg_tool_2">
                             <span className="tool_price" data-tool-id="2">tool_2</span>
                             <p className="toolnumber" id="greg_tool_2_number">err</p>
-                            <img src="./assets/tools/tool_2.png" className="toolicon tool_2" onclick="createTool(2,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_2.png" className="toolicon tool_2" onclick="createTool(2,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
                         <span className="tool blackedout" data-tooltip="Plough" id="greg_tool_3">
                             <span className="tool_price" data-tool-id="3">tool_3</span>
                             <p className="toolnumber" id="greg_tool_3_number">err</p>
-                            <img src="./assets/tools/tool_3.png" className="toolicon tool_3" onclick="createTool(3,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_3.png" className="toolicon tool_3" onclick="createTool(3,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
                         <span className="tool blackedout" data-tooltip="Dual Sickle" id="greg_tool_4">
                             <span className="tool_price" data-tool-id="4">tool_4</span>
                             <p className="toolnumber" id="greg_tool_4_number">err</p>
-                            <img src="./assets/tools/tool_4.png" className="toolicon tool_4" onclick="createTool(4,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_4.png" className="toolicon tool_4" onclick="createTool(4,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
                         <span className="tool blackedout" data-tooltip="Gilded Hoe" id="greg_tool_5">
                             <span className="tool_price" data-tool-id="5">tool_5</span>
                             <p className="toolnumber" id="greg_tool_5_number">err</p>
-                            <img src="./assets/tools/tool_5.png" className="toolicon tool_5" onclick="createTool(5,multibuy[mbsel])" tabindex="0" role="button" />
+                            <img src="./assets/tools/tool_5.png" className="toolicon tool_5" onclick="createTool(5,multibuy[mbsel])" tabIndex="0" role="button" />
                         </span>
 
                         {/* <!-- Progress Bar --> */}
@@ -181,8 +181,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
 
                         <button onclick="closeDialog()">Done</button>
                     </div>
-                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('charles')" tabindex="0" role="button" />
-                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('charles')" tabindex="0" role="button" />
+                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('charles')" tabIndex="0" role="button" />
+                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('charles')" tabIndex="0" role="button" />
 
                     {/* <!-- Top --> */}
                     <div className="top flex">
@@ -211,7 +211,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                                 onclick="Charles.improveWorkingConditions.add(multibuy[mbsel])"
                                 id="ImproveWorkingConditions_button"
                                 className="unbold shop_item flex cant_afford"
-                                tabindex="0"
+                                tabIndex="0"
                                 role="button">
                                 <img src="./assets/items/tome_iwc.png" alt="" className="shop_img tome_iwc" />
                                 <div className="info charles_shop_containter">
@@ -232,7 +232,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                                 onclick="Charles.betterHoes.add(multibuy[mbsel])"
                                 id="BetterHoes_button"
                                 className="unbold shop_item flex cant_afford"
-                                tabindex="0"
+                                tabIndex="0"
                                 role="button">
                                 <img src="./assets/items/tome_tools.png" alt="" className="shop_img tome_tools" />
                                 <div className="info charles_shop_containter">
@@ -253,7 +253,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                                 onclick="Charles.decreaseWages.add(multibuy[mbsel])"
                                 id="DecreaseWages_button"
                                 className="unbold shop_item pointer flex cant_afford"
-                                tabindex="0"
+                                tabIndex="0"
                                 role="button">
                                 <img src="./assets/items/tome_dww.png" alt="" className="shop_img tome_dww" />
                                 <div className="info charles_shop_containter">
@@ -290,8 +290,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                         <hr />
                         Sells trinkets that grant special abilities. Trinkets are kept when you prestige.
                     </div>
-                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('jared')" tabindex="0" role="button" />
-                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('jared')" tabindex="0" role="button" />
+                    <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('jared')" tabIndex="0" role="button" />
+                    <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('jared')" tabIndex="0" role="button" />
 
                     {/* <!-- Top --> */}
                     <div className="top flex">
@@ -333,8 +333,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                             <hr />
                             The artist. Ever get tired of farming carrots? Of course not, but you can still change it up if you so choose.
                         </div>
-                        <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('carl')" tabindex="0" role="button" />
-                        <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('carl')" tabindex="0" role="button" />
+                        <img src="./assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('carl')" tabIndex="0" role="button" />
+                        <img src="./assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('carl')" tabIndex="0" role="button" />
 
                         {/* <!-- Top --> */}
                         <div className="top flex">
@@ -368,9 +368,9 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                     <div className="bottom shop_bottom">
                         <div id="carl_shop"></div>
                         {/* <!-- <div className="shop_nav"> */}
-                        {/* <div className="shop_nav_item nav_prev" tabindex="0" role="button" onclick="populateCarl(-1)">⯇</div> */}
+                        {/* <div className="shop_nav_item nav_prev" tabIndex="0" role="button" onclick="populateCarl(-1)">⯇</div> */}
                         {/* <p className="secondary_text" id="carl_page_indicator">1/4</p> */}
-                        {/* <div className="shop_nav_item nav_prev" tabindex="0" role="button" onclick="populateCarl(1)">⯈</div> */}
+                        {/* <div className="shop_nav_item nav_prev" tabIndex="0" role="button" onclick="populateCarl(1)">⯈</div> */}
                         {/* </div> --> */}
                     </div>
                 </div>
