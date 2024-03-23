@@ -14,6 +14,7 @@ import { default_player, default_settings, default_Boomer_Bill, default_Greg, de
 
 //functions
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
+import Character from './classes/Character.mjs';
 
 
 function App() {
@@ -26,12 +27,18 @@ function App() {
   const [Belle_Boomerette, setBelle_Boomerette] = useState(default_Belle_Boomerette)
   const [Greg, setGreg] = useState(default_Greg);
 
+  //Charcater hashmap object to access the right characters setter
+  const characterMap = {
+    Boomer_Bill : setBoomer_Bill,
+    Belle_Boomerette : setBelle_Boomerette
+  }
 
   /**
    * The function that rewards the player with carrots
    * @param {Number} amount carrots earned
    * @param {String} type Either cpc, cps, or bonus
    * @param {Boolean} useMousePos used for falling carrots
+   * @version 1.0
    */
   function earnCarrots(amount, type, useMousePos = false) {
     //object deconstruction updating Player object
@@ -55,20 +62,32 @@ function App() {
     // Bonus
     //if(type === 'bonus') popupHandler(useMousePos, DisplayRounded(amount, 1), 'falling');
   }
+
+  /**
+   * 
+   * @param {Character} character object 
+   * @param {Number} amount 
+   * @version 1.0
+   * @returns 
+   */
   function levelUp(character,amount){
-    const totalCost=getLevelPrice(character,amount,null,null)
-    console.log(totalCost)
-    if(Player.carrots<totalCost) return
-    const characterMap = {
-      Boomer_Bill : setBoomer_Bill,
-      Belle_Boomerette : setBelle_Boomerette
-    }
-    characterMap['Boomer_Bill'](
+    //Gets the level up price of the character
+    const totalCost=getLevelPrice(character,amount,null,null);
+
+    //if the Player does not have enough carrots immedietly return;
+    if(Player.carrots<totalCost) return;
+
+    //character setter, need character.name the incode refrence name for the hashmap
+    characterMap[character.name](
       {...character, lvl:character.lvl+amount}
     )
+
+    //sets the players carrots
     setPlayer(
       {...Player, carrots:Player.carrots-=totalCost}
     )
+
+
     //temp setPlayerCpc
     setPlayer(
       {...Player, cpc:Boomer_Bill.lvl+1}
@@ -79,25 +98,26 @@ function App() {
 
   /**
    * 
-   * @param {*} character 
-   * @param {*} tool 
-   * @param {*} amount 
+   * @param {Character} character to be equipped
+   * @param {Number} tool index 0->5
+   * @param {Number} amount 
+   * @version 1.0
    * @returns 
    */
   function equipTool(character,tool,amount){
-    if(Greg.Hoes[tool]<amount) return
-    
-    const characterMap = {
-      Boomer_Bill : setBoomer_Bill,
-      Belle_Boomerette : setBelle_Boomerette
-    }
+    //If Greg does not have the number of tools that are being requested return
+    if(Greg.Hoes[tool]<amount) return;
+
+    //character setter, need character.name the incode refrence name for the hashmap
     characterMap[character.name](
       {...character, Hoes:(character.Hoes.toSpliced(tool,1,character.Hoes[tool]+amount))}
     );
+
+    //updates Gregs hoes
     setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]-amount)})
   }
 
-
+  //JSX
   return (
     <div className="App">
       <StatusBar player={Player} settings={Settings}/>

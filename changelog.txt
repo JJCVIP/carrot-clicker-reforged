@@ -1,6 +1,13 @@
 // ----------------------------------------------------------- //
+    Version reforged alpha 1.04.1
+    3/23/24
+// ----------------------------------------------------------- //
+    - added Documentation
+    - moved charactermap object to top of app.js instead of repeated in functions
+
+// ----------------------------------------------------------- //
     Version reforged alpha 1.04
-    1/3/25
+    1/3/24
 // ----------------------------------------------------------- //
     - Added Greg
     -Added Belle
