@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // Assets
-import { palleteSVG, infoSVG, levelUpPNG, toolPNGs } from "../assets/assets";
+import { paletteSVG, infoSVG, levelUpPNG, toolPNGs } from "../assets/assets";
 
 /** Component to display character interaction boxes
  * @param {{character: CharacterObject; equipTool: Function; Greg:GregObject}} 
@@ -23,7 +23,7 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
             <p>Upgrading Bill will increase your carrots per click (CPC) by one.</p>
 
         </div>
-        <img src={palleteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
+        <img src={paletteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
         <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('bill')" tabIndex="0" role="button" />
 
         {/* <!-- Top --> */}

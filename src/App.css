@@ -103,6 +103,10 @@ hr {
     height: 1px;
     background-color: var(--border-color);
 }
+hr.vr {
+    height: unset;
+    width: 1px;
+}
 img {
     user-select: none;
     -webkit-user-select: none;
