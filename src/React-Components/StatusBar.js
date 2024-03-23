@@ -6,15 +6,15 @@ import { pixel_carrot_32x } from "../assets/assets"
 
 // Components
 import NavMenu from "./NavMenu";
-import { default_tips } from "../defaultObjects.mjs";
+
+// Tip data
+import { tips } from "../defaultObjects.mjs";
+tips.fun_starter[tips.fun_starter.findIndex(e => e === '%onlyon%')] = `Only on ${window.location.host}`; // Only on [website name] tip
+
 
 export default function StatusBar({player, settings}){
     const [tipDisplayed,changeTipDisplayed] = useState("Click The Carrot"); 
     const tipInterval = useRef(null);
-
-    var tips = default_tips;
-    try { tips.seen = localStorage.getObject('tips_seen') || tips.seen; }
-    catch (error) { console.error(error); }
     
     /** Randomly choose a new tip to display in the status bar */
     const tipchange=useCallback(()=>{
@@ -25,29 +25,24 @@ export default function StatusBar({player, settings}){
         clearInterval(tipInterval.current);
         tipInterval.current = setInterval(() => {tipchange()}, 15000);
         // Tracker - determine tips level
-        if(player.equippedHoes > 0 || (player.prestige.carrots > 100000 && tips.tracker === 0)) tips.tracker = 1; // 1 tool equipped or 100k
-        else if(player.prestige.carrots > 1000000 && tips.tracker === 1) tips.tracker = 2; // 1 million
-        else if(player.prestige.carrots > 1000000000 && tips.tracker === 2) tips.tracker = 3; // 1 billion
+        if(player.equippedHoes > 0 || (player.prestige.carrots > 100000 && player.tip_tracker.tracker === 0)) player.tip_tracker.tracker = 1; // 1 tool equipped or 100k
+        else if(player.prestige.carrots > 1000000 && player.tip_tracker.tracker === 1) player.tip_tracker.tracker = 2; // 1 million
+        else if(player.prestige.carrots > 1000000000 && player.tip_tracker.tracker === 2) player.tip_tracker.tracker = 3; // 1 billion
 
-        if(tips.tracker > tips.best) tips.best = tips.tracker; // Update best
-        if(Math.random() < 0.15) tips.tracker = Math.floor(Math.random() * tips.tracker); // 20% chance any tip tier can appear 
-        tips.type = Math.random() < settings.fun_tip_percentage / 100 ? "fun" : "real"; // Decides if the tip will be real or fun. 
+        if(player.tip_tracker.tracker > player.tip_tracker.best) player.tip_tracker.best = player.tip_tracker.tracker; // Update best
+        if(Math.random() < 0.15) player.tip_tracker.tracker = Math.floor(Math.random() * player.tip_tracker.tracker); // 20% chance any tip tier can appear 
+        player.tip_tracker.type = Math.random() < settings.fun_tip_percentage / 100 ? "fun" : "real"; // Decides if the tip will be real or fun. 
 
         // Determine and display the tip
-        let type = tips.type === "fun" ? 'fun_' : '';
-        type += tipTiers[tips.tracker];
-        tips.number = Math.floor(Math.random() * tips[type].length); // Roll tip
+        let type = player.tip_tracker.type === "fun" ? 'fun_' : '';
+        type += tipTiers[player.tip_tracker.tracker];
+        player.tip_tracker.number = Math.floor(Math.random() * tips[type].length); // Roll tip
 
         // Page
-        changeTipDisplayed(tips[type][tips.number]);
+        changeTipDisplayed(tips[type][player.tip_tracker.number]);
 
-        // Mark tip as seen
-        if(tips.seen[type][tips.number] !== true) {
-            tips.seen[type][tips.number] = true;
-            if(player.flags['cookies_accepted']) localStorage.setObject('tips_seen', tips.seen);
-        }
         //tipsHTMLupdate = true;
-    },[player.equippedHoes, player.flags, player.prestige.carrots, settings.fun_tip_percentage, tips])
+    },[player.equippedHoes, player.prestige.carrots, settings.fun_tip_percentage, player.tip_tracker])
 
 
     // Automatically change tips
