@@ -28,7 +28,7 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool}
                     </div>
 
                     {/* <!-- None active --> */}
-                    <div id="no_powers boost-modifiers" className="power_item">
+                    <div id="no_powers" className="power_item">
                         No active boosts
                     </div>
 

@@ -1248,6 +1248,9 @@ body.hide_nav #game_nav { display: none; }
     margin-right: 5px;
     border-right: 1px solid var(--bg-darker);
 }
+#no_powers {
+    width: 100%; background: none; box-shadow: none; padding-left: 0;
+}
 
 /* Character bio */
 .characterbox:hover,
