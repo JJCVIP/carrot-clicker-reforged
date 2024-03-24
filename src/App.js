@@ -33,7 +33,9 @@ function App() {
     Belle_Boomerette : setBelle_Boomerette,
     Greg : setGreg
   }
-
+  /**
+   * Sets an event loop to update carrots at 20fps
+   */
   useEffect(()=>{
     const intervalId = setInterval(() => {
       setPlayer((prevPlayer) => ({
