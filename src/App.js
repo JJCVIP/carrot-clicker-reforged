@@ -30,7 +30,8 @@ function App() {
   //Charcater hashmap object to access the right characters setter
   const characterMap = {
     Boomer_Bill : setBoomer_Bill,
-    Belle_Boomerette : setBelle_Boomerette
+    Belle_Boomerette : setBelle_Boomerette,
+    Greg : setGreg
   }
 
   /**
@@ -137,16 +138,18 @@ function App() {
   }
   /**
    * Buys a tool for Greg
-   * @param {*} tool 
-   * @param {*} amount 
+   * @param {Character} structural_dummy to pair with equipHoe structure
+   * @param {Number} tool 
+   * @param {Number} amount 
    * @version 1.0
    * @returns {Null}
    */
-  function buyTool(tool,amount){
+  function buyTool(structural_dummy,tool,amount){
+    if((Player.carrots < Greg.HoePrices[tool]) || (Greg.lvl > Greg.Hoes[tool]+amount)) return;
     //adds Gregs Hoes
-    console.log(Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount))
-    setGreg({...Greg, Hoes:(Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount))})
+    setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount)})
   }
+  
   //JSX
   return (
     <div className="App">
