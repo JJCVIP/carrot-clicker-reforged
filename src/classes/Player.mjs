@@ -31,6 +31,14 @@ export default class Player{
         this.new_cosmetic=new_cosmetic;
         this.flags=flags;
         this.lifetime=lifetimeStats;
+
+        this.tip_tracker = {
+            number: 0,
+            // random:0,
+            tracker: 0, // Tip level
+            best: 0, // highest tip level reached
+            type: false
+        }
     }
 
     speak(){

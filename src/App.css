@@ -103,6 +103,10 @@ hr {
     height: 1px;
     background-color: var(--border-color);
 }
+hr.vr {
+    height: unset;
+    width: 1px;
+}
 img {
     user-select: none;
     -webkit-user-select: none;
@@ -1243,6 +1247,9 @@ body.hide_nav #game_nav { display: none; }
     padding-right: 5px;
     margin-right: 5px;
     border-right: 1px solid var(--bg-darker);
+}
+#no_powers {
+    width: 100%; background: none; box-shadow: none; padding-left: 0;
 }
 
 /* Character bio */
