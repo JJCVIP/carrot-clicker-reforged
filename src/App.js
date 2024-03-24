@@ -34,6 +34,17 @@ function App() {
     Greg : setGreg
   }
 
+  useEffect(()=>{
+    const intervalId = setInterval(() => {
+      setPlayer((prevPlayer) => ({
+        ...prevPlayer,
+        carrots: prevPlayer.carrots + (prevPlayer.cps/20),
+      }));
+    }, 50);
+
+    return () => clearInterval(intervalId);
+  },[])
+
   /**
    * Updates the Players Carrots per Click based on Bill, Charles, and Jared items
    * @returns {NUll}
