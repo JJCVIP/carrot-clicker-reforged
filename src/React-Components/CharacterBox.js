@@ -14,7 +14,6 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
     //Dynamic Classes
     const characterLockedClass = character.locked ? "char_locked" : "";
 
-    console.log(character);
     return(
     <div className={`Bill characterbox box ${characterLockedClass}`} id="bill_box">
         <div className="char_info" id="bill_info">

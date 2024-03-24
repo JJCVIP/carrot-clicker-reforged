@@ -216,7 +216,7 @@ export const default_Greg = new Blacksmith(
         { min: 100, modifier: 0.409   },
         { min: 125, modifier: 0.25    },
     ],
-    [5,0,0,0,0,10], //Hoe Array
+    [true,0,0,0,0,10], //Hoe Array
     [15000,750000,55000000,9000000000,5000000000000,25000000000000000], //Hoe Pricing
     false, //Currently Crafting
 

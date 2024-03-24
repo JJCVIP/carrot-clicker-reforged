@@ -32,7 +32,7 @@ function App() {
     Boomer_Bill : setBoomer_Bill,
     Belle_Boomerette : setBelle_Boomerette
   }
-  
+
   /**
    * Updates the Players Carrots per Click based on Bill, Charles, and Jared items
    * @returns {NUll}
@@ -58,6 +58,7 @@ function App() {
    * @param {Number} amount carrots earned
    * @param {String} type Either cpc, cps, or bonus
    * @param {Boolean} useMousePos used for falling carrots
+   * @returns {Null}
    * @version 1.0
    */
   function earnCarrots(amount, type, useMousePos = false) {
@@ -88,7 +89,7 @@ function App() {
    * @param {Character} character object 
    * @param {Number} amount 
    * @version 1.0
-   * @returns 
+   * @returns {Null}
    */
   function levelUp(character,amount){
     //Gets the level up price of the character
@@ -119,13 +120,12 @@ function App() {
    * @param {Character} character to be equipped
    * @param {Number} tool index 0->5
    * @param {Number} amount 
-   * @version 1.0
-   * @returns 
+   * @version 1.1
+   * @returns {Null}
    */
-  
   function equipTool(character,tool,amount){
-    //If Greg does not have the number of tools that are being requested return
-    if(Greg.Hoes[tool]<amount) return;
+    //If Greg does not have the number of tools that are being requested then return
+    if((isNaN(Greg.Hoes[tool]) !== (typeof(Greg.Hoes[tool])!='number')) || Greg.Hoes[tool]<amount ) return;
 
     //character setter, need character.name the incode refrence name for the hashmap
     characterMap[character.name](
@@ -135,7 +135,18 @@ function App() {
     //updates Gregs hoes
     setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]-amount)})
   }
-
+  /**
+   * Buys a tool for Greg
+   * @param {*} tool 
+   * @param {*} amount 
+   * @version 1.0
+   * @returns {Null}
+   */
+  function buyTool(tool,amount){
+    //adds Gregs Hoes
+    console.log(Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount))
+    setGreg({...Greg, Hoes:(Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount))})
+  }
   //JSX
   return (
     <div className="App">
@@ -149,7 +160,7 @@ function App() {
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
         {/* Characters */}
         <div id="characters" className="anchor_offset"></div>
-        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
+        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool} buyTool={buyTool}/>
       </div>
     </div>
   );
