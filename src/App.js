@@ -32,6 +32,26 @@ function App() {
     Boomer_Bill : setBoomer_Bill,
     Belle_Boomerette : setBelle_Boomerette
   }
+  
+  /**
+   * Updates the Players Carrots per Click based on Bill, Charles, and Jared items
+   * @returns {NUll}
+   * @version 1.0
+   * @todo Add Charles modifiers and Jared Items
+   */
+  const updateCPC = useCallback(()=>{
+    //Calculates the tool Modifier
+    const hoeModifier = 1+Boomer_Bill.Hoes.map((hoe,index) => hoe*Math.pow(10,index)).reduce((a,b) => a+b);
+
+    //creates new Carrots per click Value
+    const newCPC = Boomer_Bill.lvl*hoeModifier;
+    setPlayer(prevPlayer =>({...prevPlayer,cpc:newCPC}))
+  },[Boomer_Bill.lvl,Boomer_Bill.Hoes])
+
+  //Looks to see if dependencies change to update carrots per second
+  useEffect(()=>{
+    updateCPC();
+  },[updateCPC,Boomer_Bill.lvl,Boomer_Bill.Hoes])
 
   /**
    * The function that rewards the player with carrots
