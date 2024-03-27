@@ -80,6 +80,7 @@ export default class PriceArray{
         //if it reaches its final tier then return that
         return modifier;
     }
+    
     /**
      * @returns {Float64Array}
      */

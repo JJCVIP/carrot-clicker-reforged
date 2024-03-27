@@ -10,11 +10,12 @@ import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
 //import objects
-import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette} from './defaultObjects.mjs';
+import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette, default_Charles, default_Jared} from './defaultObjects.mjs';
 
 //functions
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
 import Character from './classes/Character.mjs';
+import PriceArray from './classes/PriceArray.mjs';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
   const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill);
   const [Belle_Boomerette, setBelle_Boomerette] = useState(default_Belle_Boomerette)
   const [Greg, setGreg] = useState(default_Greg);
+  const [Charles, setCharles] = useState(default_Charles);
+  const [Jared, setJared] = useState(default_Jared)
 
   //Charcater hashmap object to access the right characters setter
   const characterMap = {
@@ -33,6 +36,12 @@ function App() {
     Belle_Boomerette : setBelle_Boomerette,
     Greg : setGreg
   }
+
+  //Creates Price Array's for characters and tools
+  const BillPriceArrayRef = useRef(new PriceArray(Boomer_Bill.basePrice,Boomer_Bill.scaling, Boomer_Bill.lvl, Charles, Jared));
+  const BellePriceArrayRef = useRef(new PriceArray(Belle_Boomerette.basePrice,Belle_Boomerette.scaling, Belle_Boomerette.lvl, Charles, Jared));
+  const GregPriceArrayRef = useRef(new PriceArray(Greg.basePrice, greg.scaling, greg.lvl, Charles, Jared));
+
   /**
    * Sets an event loop to update carrots at 20fps
    */

@@ -2,6 +2,7 @@
 import Player from "./classes/Player.mjs";
 import Farmer from "./classes/Farmer.mjs";
 import Blacksmith from "./classes/Blacksmith.mjs";
+import Scholar from "./classes/Scholar.mjs";
 import statsTracker from "./classes/StatsTracker.mjs"
 
 // Functioms
@@ -221,3 +222,86 @@ export const default_Greg = new Blacksmith(
     false, //Currently Crafting
 
 )
+
+export const default_Charles = new Scholar("charles",'./assets/characters/Charles.png',)
+default_Charles.improvedFarmingPracticeTome = new Tome(0,1,22025);
+default_Charles.improveCraftsmanshipTome    = new Tome(0,1,22025);
+default_Charles.cheaperSteelTome            = new Tome(0,1,22025);
+default_Charles.salaryManagementTome        = new Tome(0,1,22025);
+default_Charles.bibleTome                   = new Tome(0,100,1000,1.9);
+
+export const default_Jared = {
+    // Info
+    name: "Jared",
+    nickname: "Jared",
+    img: './assets/characters/Jared.png',
+
+    // Shop player data
+    data: {
+        'mp3_player': {
+            available: true,
+            level: 0,
+            value: false,
+        },
+        'clickrate': {
+            available: true,
+            level: 0,
+            value: 2,
+        },
+        'level_up_discount': {
+            available: true,
+            level: 0,
+            value: 100,
+        },
+        'belle_bonus': {
+            available: true,
+            level: 0,
+            value: 0,
+        },
+        // 'greg_slots': { // scrapped because of how craft speed works- may add later but probably wouldnt be any good
+        //     available: true,
+        //     level: 0,
+        //     value: 1,
+        // },
+        'tool_slots': {
+            available: true,
+            level: 0,
+            value: 0,
+        },
+        'greg_speed': {
+            available: true,
+            level: 0,
+            value: 1,
+        },
+        'greg_min_start': {
+            available: true,
+            level: 0,
+            value: 100,
+        },
+        'falling_bonus': {
+            available: true,
+            level: 0,
+            value: 0,
+        },
+        'page_bonus': {
+            available: true,
+            level: 0,
+            value: 1,
+        },
+        'magic_keyboard': {
+            available: true,
+            level: 0,
+            value: false,
+        },
+        // 'paperclip': {
+        //     available: true,
+        //     level: 0,
+        //     value: 0,
+        // },
+        // 'fake_trophy': {
+        //     available: false,
+        //     level: 0,
+        //     value: false,
+        // },
+    },
+}
