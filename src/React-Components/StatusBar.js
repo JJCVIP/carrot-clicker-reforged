@@ -51,9 +51,7 @@ export default function StatusBar({player, settings}){
         return () => clearInterval(tipInterval.current);
     },[tipchange])
 
-
     //#endregion
-
 
     return(
        <div className="status_bar">

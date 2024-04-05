@@ -38,13 +38,10 @@ export default class Farmer extends Character{
             )
         ) || 1;
         
-
         //Charles Stuff
-
 
         //holy book Buff, Currently takes the tome value + 1 and cubes it, so a level 1 tome would give 9 and a level two tome would give 64..
         const holyBookBuff = Math.pow(scholar.bibleTome.value+1,3)
-        
         
         //cheaper steel, currently uses a rational function to get a value(equivelent to a percentage) to multiply the better hoes by. 
         //curve at https://www.desmos.com/calculator/jh78yzukji  
@@ -59,7 +56,6 @@ export default class Farmer extends Character{
 
         //improved craftsmenship
         const craftsmenshipBuff = 1 + scholar.improveCraftsmanshipTome.value/20;
-
 
         /* Calculates the Hoe modifier by creating a shallow copy of this.Hoes and multiplying
            each entry by 10 to the power of that hoes index. Example 1, 10, 100, 1000

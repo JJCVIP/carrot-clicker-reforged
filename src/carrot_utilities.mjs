@@ -73,17 +73,21 @@ const unitsShort = ["k", "m", "b", "t", "q", "Q", "s", "S", "o", "n", "d", "u", 
  * @param {Number} Fixedto Decimal place to cut off at
  * @param {Number} min Anything lower than this minimum won't be rounded
  * @param {Array} units Array of big number units
- * @returns Rounded number
+ * @returns {string} Rounded number
+ * @version 2.0
  */
-export function DisplayRounded(value, Fixedto=3, min=0, units=unitsShort, ignore_full_nums=false,settings=false) {
+export function DisplayRounded(value, Fixedto=4, min=0, units=unitsShort, ignore_full_nums=false,settings=false) {
     if(typeof value != 'number') value = Number(value);
     let fixed = value % 1 === 0 ? 0 : Fixedto;
     if(value < min || (settings.full_numbers && !ignore_full_nums)) return numCommas(value.toFixed(fixed)); // Return with commas instead if min is specified
-    for(let i = 0; i < units.length; i++) {
-        fixed = value / bases[i] % 1 === 0 ? 0 : Fixedto;
-        if(value < bases[i + 1] && value > bases[0]) return (value / bases[i]).toFixed(fixed) + units[i];
-    }
-    return value;
+    //finds the index to know which base to use
+    const index = bases.findIndex(a => a > value) - 1;
+    //returns the number floored if the index would of returned -1
+    if(index < 0) return Math.floor(value);
+    //adjustment to make sure that the displayed number is not larger than the actual number
+    const adjustment = 5 * Math.pow(10,-1*(Fixedto+1));
+    //returns the number properly rounded
+    return `${((value)/bases[index]-adjustment).toFixed(Fixedto)}${units[index]}`;
 }
 
 // Add commas to full number

@@ -10,11 +10,12 @@ import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
 //import objects
-import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette} from './defaultObjects.mjs';
+import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette, default_Charles, default_Jared} from './defaultObjects.mjs';
 
 //functions
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
 import Character from './classes/Character.mjs';
+import PriceArray from './classes/PriceArray.mjs';
 
 
 function App() {
@@ -26,18 +27,61 @@ function App() {
   const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill);
   const [Belle_Boomerette, setBelle_Boomerette] = useState(default_Belle_Boomerette)
   const [Greg, setGreg] = useState(default_Greg);
+  const [Charles, setCharles] = useState(default_Charles);
+  const [Jared, setJared] = useState(default_Jared)
 
   //Charcater hashmap object to access the right characters setter
   const characterMap = {
     Boomer_Bill : setBoomer_Bill,
-    Belle_Boomerette : setBelle_Boomerette
+    Belle_Boomerette : setBelle_Boomerette,
+    Greg : setGreg
   }
+
+  //Creates Price Array's for characters and tools
+  const BillPriceArrayRef = useRef(new PriceArray(Boomer_Bill.basePrice,Boomer_Bill.scaling, Boomer_Bill.lvl, Charles, Jared));
+  const BellePriceArrayRef = useRef(new PriceArray(Belle_Boomerette.basePrice,Belle_Boomerette.scaling, Belle_Boomerette.lvl, Charles, Jared));
+  const GregPriceArrayRef = useRef(new PriceArray(Greg.basePrice, greg.scaling, greg.lvl, Charles, Jared));
+
+  /**
+   * Sets an event loop to update carrots at 20fps
+   */
+  useEffect(()=>{
+    const intervalId = setInterval(() => {
+      setPlayer((prevPlayer) => ({
+        ...prevPlayer,
+        carrots: prevPlayer.carrots + (prevPlayer.cps/20),
+      }));
+    }, 50);
+
+    return () => clearInterval(intervalId);
+  },[])
+
+  /**
+   * Updates the Players Carrots per Click based on Bill, Charles, and Jared items
+   * @returns {NUll}
+   * @version 1.0
+   * @todo Add Charles modifiers and Jared Items
+   */
+  const updateCPC = useCallback(()=>{
+    //Calculates the tool Modifier
+    const hoeModifier = 1+Boomer_Bill.Hoes.map((hoe,index) => hoe*Math.pow(10,index)).reduce((a,b) => a+b);
+
+    //creates new Carrots per click Value
+    const newCPC = Boomer_Bill.lvl*hoeModifier;
+    setPlayer(prevPlayer =>({...prevPlayer,cpc:newCPC}))
+  },[Boomer_Bill.lvl,Boomer_Bill.Hoes])
+
+  //Looks to see if dependencies change to update carrots per second
+  useEffect(()=>{
+    updateCPC();
+  },[updateCPC,Boomer_Bill.lvl,Boomer_Bill.Hoes])
 
   /**
    * The function that rewards the player with carrots
    * @param {Number} amount carrots earned
    * @param {String} type Either cpc, cps, or bonus
    * @param {Boolean} useMousePos used for falling carrots
+   * @returns {Null}
    * @version 1.0
    */
   function earnCarrots(amount, type, useMousePos = false) {
@@ -68,7 +112,7 @@ function App() {
    * @param {Character} character object 
    * @param {Number} amount 
    * @version 1.0
-   * @returns 
+   * @returns {Null}
    */
   function levelUp(character,amount){
     //Gets the level up price of the character
@@ -94,19 +138,17 @@ function App() {
     )
   }
 
-
-
   /**
    * 
    * @param {Character} character to be equipped
    * @param {Number} tool index 0->5
    * @param {Number} amount 
-   * @version 1.0
-   * @returns 
+   * @version 1.1
+   * @returns {Null}
    */
   function equipTool(character,tool,amount){
-    //If Greg does not have the number of tools that are being requested return
-    if(Greg.Hoes[tool]<amount) return;
+    //If Greg does not have the number of tools that are being requested then return
+    if((isNaN(Greg.Hoes[tool]) !== (typeof(Greg.Hoes[tool])!='number')) || Greg.Hoes[tool]<amount ) return;
 
     //character setter, need character.name the incode refrence name for the hashmap
     characterMap[character.name](
@@ -116,7 +158,20 @@ function App() {
     //updates Gregs hoes
     setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]-amount)})
   }
-
+  /**
+   * Buys a tool for Greg
+   * @param {Character} structural_dummy to pair with equipHoe structure
+   * @param {Number} tool 
+   * @param {Number} amount 
+   * @version 1.0
+   * @returns {Null}
+   */
+  function buyTool(structural_dummy,tool,amount){
+    if((Player.carrots < Greg.HoePrices[tool]) || (Greg.lvl > Greg.Hoes[tool]+amount)) return;
+    //adds Gregs Hoes
+    setGreg({...Greg, Hoes:Greg.Hoes.toSpliced(tool,1,Greg.Hoes[tool]+amount)})
+  }
+  
   //JSX
   return (
     <div className="App">
@@ -130,7 +185,7 @@ function App() {
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
         {/* Characters */}
         <div id="characters" className="anchor_offset"></div>
-        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool}/>
+        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool} buyTool={buyTool}/>
       </div>
     </div>
   );
