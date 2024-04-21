@@ -10,12 +10,12 @@ export default class Tome {
      * 
      * @param {Number} amount number of items you want to buy. 
      * @param {Boolean} sendNewPrice if True it sends the price of the next tome otherwise it queries the price you 
-     * @returns 
+     * @returns {Number|String}
      */
     priceQuery(amount=1, sendNewPrice=false){
         //handling cases where the tomes can not be bought
         if(typeof(amount)!=="number") return console.error("amount needs to be a number");
-        if(this.value+amount>=this.max && sendNewPrice==false){console.error(); return "∞"}
+        if(this.value+amount>=this.max && sendNewPrice===false){console.warn("priceQuery: Value exceeded max"); return "∞"}
 
         //useful variables
         let valueDummy = this.value;

@@ -3,6 +3,7 @@ import Player from "./classes/Player.mjs";
 import Farmer from "./classes/Farmer.mjs";
 import Blacksmith from "./classes/Blacksmith.mjs";
 import Scholar from "./classes/Scholar.mjs";
+// import Tome from "./classes/Tome.mjs";
 import statsTracker from "./classes/StatsTracker.mjs"
 
 // Functioms
