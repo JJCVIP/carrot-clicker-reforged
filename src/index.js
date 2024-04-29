@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // CSS
-import './styles.css';
+import './compiled_styles.css';
 
 // Components
 import App from './App';
