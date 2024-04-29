@@ -34,50 +34,9 @@ export const playerPrestigeTemplate = {
 };
 
 export const defaultStatTracker = new statsTracker(0,0,0,0,0,0,0,0,0,{crafted: [0, 0, 0, 0, 0, 0],craftedTotal: 0},0,0,0)
-  
-export const default_player = new Player(
-    16,//data_version; needs to be incremented by 1 any time any game object is changed
-    0, //carrots
-    1, //cpc; Carrots per click
-    0, //cps; Carrots per Second
-    0, //equippedHoes
-    0, //cash
-    0, //clickSpeedRecord
-    0, //fallingConsecRecord
-    '0/0', //trinket_completion,
-    0, //pages; tome pages that increase prestige potential
-    0, //golden_carrots
-    0, //prestige_potential; golden carrots recived upon prestige
-    0, //prestige_potential_cap
-    false, //prestige_available; wether you can prestige
-    clone(playerPrestigeTemplate), //prestige
 
-    // Unlocked characters
-    { bill: true }, //characters; unlocked
-    {}, //achievements
-    0, //internal
-
-    // Unlockables
-    ['theme_dark', 'theme_light', "theme_oled"], // themes
-    {
-        'bundle':   ['default'],
-        'farmable': ['default'],
-        'bill':     ['default'],
-        'belle':    ['default'],
-        'greg':     ['default'],
-        'charles': ['default'],
-        'carl':     ['default'],
-        'jared':    ['default'],
-        'tools':    ['default'],
-    }, // cosmetics
-
-    false, //new_theme
-    false, //new_cosmetic
-
-
-    {},  //flags
-    clone(defaultStatTracker)
-)
+/** Default player object */
+export const default_player = new Player();
 
 //default keybinds
 export const keybinds_default = {

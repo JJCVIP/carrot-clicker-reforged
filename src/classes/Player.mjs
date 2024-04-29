@@ -1,37 +1,66 @@
 //creates a player class
-import StatsTracker from "./StatsTracker.mjs";
+import StatsTracker from "./StatsTracker.mjs"
+import { playerPrestigeTemplate, defaultStatTracker } from "../defaultObjects.mjs"
 
-export default class Player{
-    constructor(data_version,carrots,cpc,cps,equippedHoes,cash,
-        clickSpeedRecord,fallingConsecRecord,trinket_completion,pages,golden_carrots,
-        prestige_potential,prestige_potential_cap,prestige_available,
-        prestige,characters,achievements, internal,themes,cosmetics,
-        new_theme,new_cosmetic,flags,lifetimeStats){
-        this.data_version=data_version;
-        this.carrots=carrots;
-        this.cpc=cpc;
-        this.cps=cps;
-        this.equippedHoes=equippedHoes;
-        this.cash=cash;
-        this.clickSpeedRecord=clickSpeedRecord;
-        this.fallingConsecRecord=fallingConsecRecord;
-        this.trinket_completion=trinket_completion;
-        this.pages=pages;
-        this.golden_carrots=golden_carrots;
-        this.prestige_potential=prestige_potential;
-        this.prestige_potential_cap=prestige_potential_cap;
-        this.prestige_available=prestige_available;
-        this.prestige=prestige;
-        this.characters=characters;
-        this.achievements=achievements;
-        this.internal=internal;
-        this.themes=themes;
-        this.cosmetics=cosmetics;
-        this.new_theme=new_theme;
-        this.new_cosmetic=new_cosmetic;
-        this.flags=flags;
-        this.lifetime=lifetimeStats;
+// Functioms
+import { clone } from "../carrot_utilities.mjs"
 
+const current_data_version = 16;
+
+/** Player class */
+export default class Player {
+    /** Player constructor
+     * @param {Object} data Any key/value pairs will be replace the default values. Leave undefined for a new player object with defaults
+     */
+    constructor(data={}){
+        // Default values
+
+        // data_version - Needs to be incremented by 1 any time any game object is changed
+        this.data_version = current_data_version; 
+        this.flags = {};
+
+        // Values
+        this.carrots = 0;
+        this.cpc = 1; // Carrots per click
+        this.cps = 0; // Carrots per Second
+        this.equippedHoes = 0;
+        this.cash = 0;
+        this.pages = 0;
+
+        // Prestiging
+        this.golden_carrots = 0;
+        this.prestige_potential = 0; // Golden carrots the player will receive upon prestige
+        this.prestige_potential_cap = 0;
+        this.prestige_available = false; // Whether you can prestige
+        this.prestige = clone(playerPrestigeTemplate);
+
+        // Trackers
+        this.clickSpeedRecord = 0;
+        this.fallingConsecRecord = 0;
+        this.trinket_completion = '0/0';
+
+        // Unlocks
+        this.characters = { bill: true };
+        this.achievements = {};
+        this.internal = 0; // Internal achievements unlocked?
+        this.themes = ['theme_dark', 'theme_light', "theme_oled"];
+        this.cosmetics = {
+            'bundle':   ['default'],
+            'farmable': ['default'],
+            'bill':     ['default'],
+            'belle':    ['default'],
+            'greg':     ['default'],
+            'charles':  ['default'],
+            'carl':     ['default'],
+            'jared':    ['default'],
+            'tools':    ['default'],
+        };
+        this.new_theme = false;
+        this.new_cosmetic = false;
+
+        this.lifetime = clone(defaultStatTracker);
+
+        // Tips
         this.tip_tracker = {
             number: 0,
             // random:0,
@@ -39,6 +68,9 @@ export default class Player{
             best: 0, // highest tip level reached
             type: false
         }
+
+        // Override default values with paramaters from "data" object
+        for(let [key, value] of Object.entries(data)) this[key] = value;
     }
 
     speak(){
