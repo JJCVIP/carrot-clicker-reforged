@@ -14,7 +14,7 @@ export default class Tome {
      */
     priceQuery(amount=1, sendNewPrice=false){
         //handling cases where the tomes can not be bought
-        if(typeof(amount)!=="number") return console.error("amount needs to be a number");
+        if(typeof amount !=="number") return console.error("amount needs to be a number");
         if(this.value+amount>=this.max && sendNewPrice===false){console.warn("priceQuery: Value exceeded max"); return "∞"}
 
         //useful variables
@@ -24,7 +24,7 @@ export default class Tome {
         let newPrice = this.price;
         let scaling = this.price_scaling
         //multibuy for loop
-        for(let i=0;i<amount+10;i++){
+        for(let i=0; i<amount+10; i++){
             
             
             //scaling
@@ -49,7 +49,7 @@ export default class Tome {
 
     add(amount=1){
         // Handling cases where the tomes can not be bought
-        if(typeof(amount)!=="number") return console.error("amount needs to be a number");
+        if(typeof amount !=="number") return console.error("amount needs to be a number");
         if(this.value+amount>this.max) return toast("Can not purchase", `There are only ${this.max} tomes containing knowledge on this subejct`, '', false, true);
         
         // Return if can't afford

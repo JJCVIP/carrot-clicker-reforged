@@ -225,11 +225,11 @@ export const default_Greg = new Blacksmith(
 )
 
 export const default_Charles = new Scholar("charles",'./assets/characters/Charles.png',)
-default_Charles.improvedFarmingPracticeTome = new Tome(0,1,22025);
-default_Charles.improveCraftsmanshipTome    = new Tome(0,1,22025);
-default_Charles.cheaperSteelTome            = new Tome(0,1,22025);
-default_Charles.salaryManagementTome        = new Tome(0,1,22025);
-default_Charles.bibleTome                   = new Tome(0,100,1000,1.9);
+// default_Charles.improvedFarmingPracticeTome = new Tome(0,1,22025);
+// default_Charles.improveCraftsmanshipTome    = new Tome(0,1,22025);
+// default_Charles.cheaperSteelTome            = new Tome(0,1,22025);
+// default_Charles.salaryManagementTome        = new Tome(0,1,22025);
+// default_Charles.bibleTome                   = new Tome(0,100,1000,1.9);
 
 export const default_Jared = {
     // Info
