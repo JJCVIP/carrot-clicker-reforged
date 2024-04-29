@@ -15,9 +15,13 @@ import PlayerClass from './classes/Player.mjs'
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
 import Character from './classes/Character.mjs';
 import PriceArray from './classes/PriceArray.mjs';
+import PopupMenu from './React-Components/PopupMenu';
 
 
 function App() {
+    // User interface
+    const [menu, setMenu] = useState(false); // Popup menu
+
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
     const [Settings, setSettings] = useState(default_settings);
@@ -187,7 +191,7 @@ function App() {
 
     //JSX
     return (
-        <div className="App">
+        <>
             <StatusBar player={Player} settings={Settings} />
 
             {/* Game section and Characters */}
@@ -204,7 +208,10 @@ function App() {
                 // multibuy={multibuy} multibuySpin={multibuySpin}
                 />
             </div>
-        </div>
+
+            {/* Overlays */}
+            {menu === false ? null : <PopupMenu menu="tips" />}
+        </>
     );
 }
 
