@@ -47,21 +47,19 @@ function App() {
     const [Charles, setCharles] = useState(default_Charles);
     const [Jared, setJared] = useState(default_Jared)
 
-    //Charcater hashmap object to access the right characters setter
+    // Character hashmap object to access the right characters setter
     const characterMap = {
         Boomer_Bill: setBoomer_Bill,
         Belle_Boomerette: setBelle_Boomerette,
         Greg: setGreg
     }
 
-    //Creates Price Array's for characters and tools
+    // Creates price arrays for characters and tools
     const BillPriceArrayRef = useRef(new PriceArray(Boomer_Bill.basePrice, Boomer_Bill.scaling, Boomer_Bill.lvl, Charles, Jared));
     const BellePriceArrayRef = useRef(new PriceArray(Belle_Boomerette.basePrice, Belle_Boomerette.scaling, Belle_Boomerette.lvl, Charles, Jared));
     const GregPriceArrayRef = useRef(new PriceArray(Greg.basePrice, Greg.scaling, Greg.lvl, Charles, Jared));
 
-    /**
-     * Sets an event loop to update carrots at 20fps
-     */
+    /** Sets an event loop to update carrots at 20fps */
     useEffect(() => {
         const intervalId = setInterval(() => {
             setPlayer((prevPlayer) => ({
@@ -73,8 +71,7 @@ function App() {
         return () => clearInterval(intervalId);
     }, [])
 
-    /**
-     * Updates the Players Carrots per Click based on Bill, Charles, and Jared items
+    /** Updates the Players Carrots per Click based on Bill, Charles, and Jared items
      * @returns {NUll}
      * @version 1.0
      * @todo Add Charles modifiers and Jared Items
@@ -88,21 +85,20 @@ function App() {
         setPlayer(prevPlayer => ({ ...prevPlayer, cpc: newCPC }))
     }, [Boomer_Bill.lvl, Boomer_Bill.Hoes])
 
-    //Looks to see if dependencies change to update carrots per second
+    // Looks to see if dependencies change to update carrots per second
     useEffect(() => {
         updateCPC();
     }, [updateCPC, Boomer_Bill.lvl, Boomer_Bill.Hoes])
 
-    /**
-     * The function that rewards the player with carrots
+    /** The function that rewards the player with carrots
      * @param {Number} amount carrots earned
      * @param {String} type Either cpc, cps, or bonus
      * @param {Boolean} useMousePos used for falling carrots
      * @returns {Null}
      * @version 1.0
      */
-    function earnCarrots(amount, type, useMousePos = false) {
-        //object deconstruction updating Player object
+    function earnCarrots(amount, type, useMousePos=false) {
+        // Object deconstruction updating Player object
         setPlayer({
             ...Player,
             carrots: Player.carrots + amount,
