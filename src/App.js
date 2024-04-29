@@ -1,5 +1,3 @@
-import './App.css';
-
 //React Hooks
 import { useState, useCallback, useEffect, useRef } from 'react';
 
