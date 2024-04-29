@@ -159,8 +159,7 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
 
             {/* <!-- Prestige potential --> */}
             <p id="prestige-section" className="secondary_text center" style={{"paddingTop":"6px"}}>
-                Prestige potential:
-                    <span id="main_prestige_potential">-</span>
+                Prestige potential: <span id="main_prestige_potential">-</span>
             </p>
     </section>
     )
