@@ -1,7 +1,11 @@
-export default function GameInfoBox({name, info, png, tooltip}){
+export default function GameInfoBox({name, value, icon, tooltip}){
     return(
         <div className="mini_item" data-tooltip={tooltip}>
-            <img src={png} alt="" className="invert_alt"/><span className="mini_name">{name}</span><span className="mini_number">{info}</span>
+            {
+                icon ? <img src={icon} alt="" className="invert_alt"/> : null
+            }
+            <span className="mini_name">{name}</span>
+            <span className="mini_number">{value}</span>
         </div>
     )
 }

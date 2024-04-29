@@ -11,7 +11,8 @@ import { DisplayRounded } from "../carrot_utilities.mjs";
 
 // Assets
 import {
-    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG
+    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG,
+    shareSVG
 } from "../assets/assets"
 
 export default function GameSection({Player, earnCarrots,settings={},cosmeticData={}}){
@@ -105,33 +106,45 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
     return(
     <section id="game_section">
         {/* <!-- Falling Carrots --> */}
-        <div id="fallingCarrotsArea"> </div>
+        <div id="fallingCarrotsArea"></div>
 
         {/* Main Carrot */}
-        <img src={carrotPNG} onClick={()=>{earnCarrots(Player.cpc,"cpc"); clickSpeedHandler(true); popupHandler(1)}} id="main_carrot" alt="Carrot" role="button" tabIndex="0"></img>
+        <img src={carrotPNG}
+            onClick={()=>{
+                earnCarrots(Player.cpc,"cpc");
+                clickSpeedHandler(true);
+                popupHandler(1);
+            }}
+            id="main_carrot" alt="Carrot" role="button" tabIndex="0"
+        />
 
         {/* Info Box Under Carrot */}
         <div className="mini_stats">
                 <p className="Carrot_Count"> {DisplayRounded(Player.carrots)} Carrots</p>
-                <p><span id="click_speed">{clickSpeed}/{bestClickSpeed} clicks per second</span></p><br/>
+                <p><span id="click_speed">{clickSpeed}/{bestClickSpeed} clicks per second</span></p>
+                <br/>
 
                 {/* Mini info */}
                 <div className="row flex">
                     {/* <!-- CPC --> */}
-                    <GameInfoBox png={whiteCursorPNG} name={"CPC"} info={DisplayRounded(Player.cpc)} tooltip={"Carrots Per Click"}/>
+                    <GameInfoBox name={"CPC"} icon={whiteCursorPNG} value={DisplayRounded(Player.cpc)} tooltip={"Carrots Per Click"}/>
 
                     {/* <!-- CPS --> */}
-                    <GameInfoBox png={clockPNG} name={"CPS"} info={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
+                    <GameInfoBox name={"CPS"} icon={clockPNG} value={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
                 </div>
                 <br/>
 
-                <button>
-                    <img src={backpackSVG} alt="Inventory" className="main_button_img" id="inventory_button_img"/>
-                </button>
-                {/* <!-- Hardmode button --> */}
-                <button onClick="openDifficultyMenu()" data-tooltip="Hardmode" className="main_button_item button_red" id="difficulty_menu_button">
-                    <img src={medalPNG} alt="Hardmode" className="main_button_img" id="tips_button_img"/>
-                </button>
+                <div className="row flex">
+                    {/* Golden Carrots */}
+                    <GameInfoBox name={"Golden Carrots"} value={"N/A"} tooltip={"Golden carrots are created when you prestige. Use them to buy tomes to give your farmers permanent buffs. Be sure to spend all of your golden carrots before you start farming!"}/>
+
+                    {/* Golden Carrots */}
+                    <GameInfoBox name={"Tome Pages"} value={"N/A"} tooltip={"For every tome page you have you will recieve a +1% (or more) golden carrot bonus when prestiging. Earn additional tome pages by completing achievements!"}/>
+                </div>
+
+                <div className="row flex">
+                    <GameInfoBox name={"Coins"} value={"N/A"} tooltip={"For every tome page you have you will recieve a +1% (or more) golden carrot bonus when prestiging. Earn additional tome pages by completing achievements!"}/>
+                </div>
             </div>
 
             {/* Game Buttons */}
@@ -141,20 +154,7 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
                 {/* <GameButton name="Inventory" icon={backpackSVG} onClick={"openInventory()"} /> */}
                 <GameButton name="Tips" icon={lightBulbSVG} onClick={null} />
                 <GameButton name="Hardmode" icon={medalPNG} onClick="openDifficultyMenu()" classes="button_red" />
-
-                {/* <!-- Share --> */}
-                {/* <script>
-                    function shareProgress() {
-                        navigator.share({
-                            // text:`I\'ve farmed ${player.carrots} carrots in Carrot Clicker so far. Check it out!\n\nhttps://carrot.notkal.com/`,
-                            url:'https://carrot.notkal.com/'
-                        }).catch(err => {toast('didnt work rip')});
-                    }
-                </script>
-                <button onClick="shareProgress()" data-tooltip="Share your progress" class="main_button_item flex" style="width: auto; padding: 5px 9px;">
-                    <img src="./assets/icons/share.png" class="main_button_img icon">
-                    <span style="margin: 7px 0 0 6px;">Share</span>
-                </button> */}
+                {/* <GameButton name="Share your progress" icon={shareSVG} onClick="shareProgress()" /> */}
             </div>
 
             {/* <!-- Prestige potential --> */}

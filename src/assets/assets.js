@@ -14,6 +14,7 @@ export { default as padlockSVG }        from "./icons/padlock.svg"
 export { default as volumeSVG }         from "./icons/volume.svg"
 export { default as refreshSVG }        from "./icons/refresh.svg"
 export { default as externalSVG }       from "./icons/external.svg"
+export { default as shareSVG }          from "./icons/ios_share_FILL0_wght300_GRAD0_opsz24.svg"
 
 export { default as githubPNG }         from "./icons/github.png"
 
