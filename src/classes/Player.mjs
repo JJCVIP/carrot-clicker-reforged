@@ -1,14 +1,34 @@
 //creates a player class
 import StatsTracker from "./StatsTracker.mjs"
-import { playerPrestigeTemplate, defaultStatTracker } from "../defaultObjects.mjs"
+import { defaultStatTracker } from "../defaultObjects.mjs"
 
 // Functioms
 import { clone } from "../carrot_utilities.mjs"
 
+
+// Defaults
+const playerPrestigeTemplate = {
+    carrots: 0,
+    cpc_carrots: 0,
+    cps_carrots: 0,
+    bonus_carrots: 0,
+
+    // cash: 0,
+    falling_carrots_grabbed: 0,
+
+    // golden_carrots: 0,
+    // prestige_count: 0,
+    clicks: 0,
+    hoes: {
+        crafted: [0, 0, 0, 0, 0, 0],
+        craftedTotal: 0,
+    },
+    boosts_used: 0,
+};
 const current_data_version = 16;
 
 /** Player class */
-export default class Player {
+export default class PlayerClass {
     /** Player constructor
      * @param {Object} data Any key/value pairs will be replace the default values. Leave undefined for a new player object with defaults
      */
@@ -58,7 +78,7 @@ export default class Player {
         this.new_theme = false;
         this.new_cosmetic = false;
 
-        this.lifetime = clone(defaultStatTracker);
+        this.lifetime = new StatsTracker();
 
         // Tips
         this.tip_tracker = {

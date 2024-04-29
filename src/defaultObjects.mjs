@@ -1,5 +1,5 @@
 // Game classes
-import Player from "./classes/Player.mjs";
+import PlayerClass from "./classes/Player.mjs";
 import Farmer from "./classes/Farmer.mjs";
 import Blacksmith from "./classes/Blacksmith.mjs";
 import Scholar from "./classes/Scholar.mjs";
@@ -11,32 +11,6 @@ import { clone } from "./carrot_utilities.mjs";
 
 // Assets
 import { billPNG, bellePNG, gregPNG } from "./assets/assets.js";
-
-
-// Player
-export const playerPrestigeTemplate = {
-    carrots: 0,
-    cpc_carrots: 0,
-    cps_carrots: 0,
-    bonus_carrots: 0,
-
-    // cash: 0,
-    falling_carrots_grabbed: 0,
-
-    // golden_carrots: 0,
-    // prestige_count: 0,
-    clicks: 0,
-    hoes: {
-        crafted: [0, 0, 0, 0, 0, 0],
-        craftedTotal: 0,
-    },
-    boosts_used: 0,
-};
-
-export const defaultStatTracker = new statsTracker(0,0,0,0,0,0,0,0,0,{crafted: [0, 0, 0, 0, 0, 0],craftedTotal: 0},0,0,0)
-
-/** Default player object */
-export const default_player = new Player();
 
 //default keybinds
 export const keybinds_default = {

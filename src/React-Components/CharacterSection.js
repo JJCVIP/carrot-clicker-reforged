@@ -5,7 +5,11 @@ import CharacterBox from "./CharacterBox"
 //assets
 
 
-export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool, buyTool}) {
+export default function CharacterSection({
+    Bill, Belle, Greg,
+    levelUp, equipTool, buyTool,
+    multibuy, multibuySpin
+}) {
     return (
         <section id="character_section">
 
@@ -15,8 +19,8 @@ export default function CharacterSection({Bill, Belle, Greg, levelUp, equipTool,
                 {/* <!-- Powers --> */}
                 <div id="powers_container" className="box flex">
                     <div className="mb_vr">
-                        <div id="multibuy" className="power_item link_styling bold secondary_text" title="Purchase multiplier - Click to cycle" onclick="multibuySpin()" tabIndex="0" role="button">
-                            1x
+                        <div id="multibuy" className="power_item link_styling bold secondary_text" title="Purchase multiplier - Click to cycle" onclick={multibuySpin} tabIndex="0" role="button">
+                            {multibuy}x
                         </div>
                     </div>
 

@@ -8,7 +8,8 @@ import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
 
 //import objects
-import { default_player, default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette, default_Charles, default_Jared} from './defaultObjects.mjs';
+import { default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette, default_Charles, default_Jared} from './defaultObjects.mjs';
+import PlayerClass from './classes/Player.mjs'
 
 //functions
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
@@ -18,10 +19,28 @@ import PriceArray from './classes/PriceArray.mjs';
 
 function App() {
   /*-----setting State objects-----*/
-  const [Player, setPlayer]     = useState(default_player);
+  const [Player, setPlayer]     = useState(new PlayerClass());
   const [Settings, setSettings] = useState(default_settings);
 
-  //characters
+  // Multibuy
+//   const mbValues = [1,10,100];
+//   const [mbIndex, setMbIndex] = useState(0);
+//   let multibuy = mbValues[mbIndex]; // Final multiplier
+//   const multibuySpin = function() {
+//     setMbIndex((mbIndex+1) % mbValues.length);
+//     multibuy = mbValues[mbIndex];
+
+//     console.log(multibuy);
+
+//     // Tutorial message
+//     // if(player.flags['tutorial_multibuy'] !== true) {
+//     //     toast(...toasts.tutorial_multibuy);
+//     //     player.flags['tutorial_multibuy'] = true;
+//     // }
+//   }
+
+
+  // Characters
   const [Boomer_Bill, setBoomer_Bill] = useState(default_Boomer_Bill);
   const [Belle_Boomerette, setBelle_Boomerette] = useState(default_Belle_Boomerette)
   const [Greg, setGreg] = useState(default_Greg);
@@ -183,7 +202,11 @@ function App() {
         <GameSection Player={Player} earnCarrots={earnCarrots}/>
         {/* Characters */}
         <div id="characters" className="anchor_offset"></div>
-        <CharacterSection Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg} levelUp={levelUp} equipTool={equipTool} buyTool={buyTool}/>
+        <CharacterSection
+            Bill={Boomer_Bill} Belle={Belle_Boomerette} Greg={Greg}
+            levelUp={levelUp} equipTool={equipTool} buyTool={buyTool}
+            // multibuy={multibuy} multibuySpin={multibuySpin}
+        />
       </div>
     </div>
   );
