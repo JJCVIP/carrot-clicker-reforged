@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 
 //react components
 import GameInfoBox from "./GameInfoBox";
+import GameButton from "./GameButton";
 
 //functions
 import { DisplayRounded } from "../carrot_utilities.mjs";
@@ -114,23 +115,46 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
                 <p className="Carrot_Count"> {DisplayRounded(Player.carrots)} Carrots</p>
                 <p><span id="click_speed">{clickSpeed}/{bestClickSpeed} clicks per second</span></p><br/>
 
+                {/* Mini info */}
                 <div className="row flex">
                     {/* <!-- CPC --> */}
                     <GameInfoBox png={whiteCursorPNG} name={"CPC"} info={DisplayRounded(Player.cpc)} tooltip={"Carrots Per Click"}/>
+
                     {/* <!-- CPS --> */}
                     <GameInfoBox png={clockPNG} name={"CPS"} info={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
-                </div><br/>
+                </div>
+                <br/>
+
                 <button>
                     <img src={backpackSVG} alt="Inventory" className="main_button_img" id="inventory_button_img"/>
-                </button> 
-                {/* <!-- Tips button --> */}
-                <button onClick="openTipsMenu()" data-tooltip="Tips" className="main_button_item" id="tips_menu_button">
-                    <img src={lightBulbSVG} alt="Tips" className="main_button_img" id="tips_button_img"/>
                 </button>
                 {/* <!-- Hardmode button --> */}
                 <button onClick="openDifficultyMenu()" data-tooltip="Hardmode" className="main_button_item button_red" id="difficulty_menu_button">
                     <img src={medalPNG} alt="Hardmode" className="main_button_img" id="tips_button_img"/>
                 </button>
+            </div>
+
+            {/* Game Buttons */}
+            <div class="main_buttons flex">
+                {/* <!-- Prestige button --> */}
+                <GameButton name={"???" ?? "Prestige"} icon={carrotPNG} onClick={"openPrestigeMenu()"} buttonDisabled={true} />
+                {/* <GameButton name="Inventory" icon={backpackSVG} onClick={"openInventory()"} /> */}
+                <GameButton name="Tips" icon={lightBulbSVG} onClick={null} />
+                <GameButton name="Hardmode" icon={medalPNG} onClick="openDifficultyMenu()" classes="button_red" />
+
+                {/* <!-- Share --> */}
+                {/* <script>
+                    function shareProgress() {
+                        navigator.share({
+                            // text:`I\'ve farmed ${player.carrots} carrots in Carrot Clicker so far. Check it out!\n\nhttps://carrot.notkal.com/`,
+                            url:'https://carrot.notkal.com/'
+                        }).catch(err => {toast('didnt work rip')});
+                    }
+                </script>
+                <button onClick="shareProgress()" data-tooltip="Share your progress" class="main_button_item flex" style="width: auto; padding: 5px 9px;">
+                    <img src="./assets/icons/share.png" class="main_button_img icon">
+                    <span style="margin: 7px 0 0 6px;">Share</span>
+                </button> */}
             </div>
 
             {/* <!-- Prestige potential --> */}
