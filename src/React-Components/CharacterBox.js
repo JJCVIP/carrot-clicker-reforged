@@ -23,8 +23,8 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
             <p>Upgrading Bill will increase your carrots per click (CPC) by one.</p>
 
         </div>
-        <img src={paletteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onclick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
-        <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onclick="characterInfo('bill')" tabIndex="0" role="button" />
+        <img src={paletteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onClick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
+        <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onClick="characterInfo('bill')" tabIndex="0" role="button" />
 
         {/* <!-- Top --> */}
         <div className="top flex">

@@ -21,6 +21,11 @@ import PopupMenu from './React-Components/PopupMenu';
 function App() {
     // User interface
     const [menu, setMenu] = useState(false); // Popup menu
+    const [menuProps, setMenuProps] = useState({}); // Popup menu
+    function dialog(title="Title", description="Description", buttonName="OK", buttonStyle, button_action) {
+        setMenuProps({ title, description, buttonName, buttonStyle, button_action });
+        setMenu("dialog");
+    }
 
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
@@ -199,7 +204,10 @@ function App() {
                 <div id="home" className="anchor_offset"></div>
 
                 {/* The Game Section */}
-                <GameSection Player={Player} earnCarrots={earnCarrots} />
+                <GameSection
+                    Player={Player} earnCarrots={earnCarrots}
+                    setMenu={setMenu} dialog={dialog}
+                />
                 {/* Characters */}
                 <div id="characters" className="anchor_offset"></div>
                 <CharacterSection
@@ -210,7 +218,7 @@ function App() {
             </div>
 
             {/* Overlays */}
-            {menu === false ? null : <PopupMenu menu="tips" />}
+            {menu === false ? null : <PopupMenu menu={menu} setMenu={setMenu} params={menuProps} />}
         </>
     );
 }

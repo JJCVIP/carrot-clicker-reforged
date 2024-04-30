@@ -71,7 +71,7 @@ export default function CharacterSection({
                         <div className="characterdesc">
                             <b id="belle_name" className="character_name">Belle</b>
                             <p>Upgrade cost: <span id="UpBelleCost" className="upgrade_cost white">-</span></p>
-                            <p>Level: <input type="text" value="-" id="Belle_lvl" className="discreet dev_input" autocomplete="off" disabled /></p>
+                            <p>Level: <input type="text" value="-" id="Belle_lvl" className="discreet dev_input" autoComplete="off" disabled /></p>
                         </div>
                     </div>
 
@@ -123,7 +123,7 @@ export default function CharacterSection({
                         <div className="characterdesc">
                             <b id="greg_name" className="character_name">Greg</b>
                             <p>Upgrade cost: <span id="UpGregCost" className="upgrade_cost white">-</span></p>
-                            <p>Level: <input type="text" value="-" id="Greg_lvl" className="discreet dev_input" autocomplete="off" disabled /><span id="greg_next">Next tool at -</span></p>
+                            <p>Level: <input type="text" value="-" id="Greg_lvl" className="discreet dev_input" autoComplete="off" disabled /><span id="greg_next">Next tool at -</span></p>
                         </div>
                     </div>
 

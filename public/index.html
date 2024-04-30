@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Main -->
     <title>Carrot Clicker</title>
-    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="theme-color" content="#312e2e" id="theme_color">
 
@@ -19,8 +20,10 @@
     <meta property="og:image" content="https://carrot.notkal.com/assets/Carrot%20Clicker.png" />
 
     <!-- Description -->
-    <meta name="description" content="Carrot Clicker is an exponential growth clicker game where clicking is always incentivised">
-    <meta property="og:description" content="Carrot Clicker is an exponential growth clicker game where clicking is always incentivised" />
+    <meta name="description"
+        content="Carrot Clicker is an exponential growth clicker game where clicking is always incentivised">
+    <meta property="og:description"
+        content="Carrot Clicker is an exponential growth clicker game where clicking is always incentivised" />
 
     <!-- Adsense script GOES HERE -->
 
@@ -29,27 +32,24 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  </head>
-  <body>
-      <noscript className="center">
+</head>
+<body>
+    <!-- No script -->
+    <noscript class="center">
         <style>
-          noscript > div { width: 100%; padding: 16px 0;/* background-color: rgb(255, 65, 65); color: white;*/ }
+            noscript>div {
+                width: 100%;
+                padding: 16px 0;
+                /* background-color: rgb(255, 65, 65); color: white;*/
+            }
         </style>
-        <div className="center">
-            <b><u>Notice:</u></b> Javascript is required to play Carrot Clicker.<br/>
+        <div class="center">
+            <b><u>Notice:</u></b> Javascript is required to play Carrot Clicker.<br />
             You'll need to enable Javascript for this site in your browser's settings
         </div>
     </noscript>
+
+    <!-- Root -->
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+</body>
 </html>

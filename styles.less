@@ -323,7 +323,7 @@ summary {
     top: 0;
     left: 0;
     z-index: 200;
-    visibility: hidden;
+    // visibility: hidden;
     backdrop-filter: blur(30px) saturate(20%);
 }
 #backdrop {
@@ -337,7 +337,9 @@ summary {
 #dialog { width: 420px; }
 /* .dialog_animate { animation: dialog 0.25s ease-out; }
 @keyframes dialog { from {transform: translate(-50%, calc(-50% + 20px));} } */
-#dialog button { width: 49%; }
+
+#dialog_buttons { display: flex; gap: 6px; }
+#dialog button { width: 100%; }
 #dialog h2, #dialog p {
     margin: 0;
     padding: 0;
@@ -383,7 +385,7 @@ summary {
     margin-left: auto;
     border-radius: 100px;
 
-    visibility: hidden;
+    // visibility: hidden;
     transition: filter 0.1s;
 }
 #toasts_clear:hover {
@@ -2597,9 +2599,6 @@ footer .user_card { text-decoration: none !important; }
 
 /* 460px - mobile small*/
 @media only screen and (max-width: 460px) {
-    /* Overlay */
-    #overlay { height: 100vh; }
-
     /* Tripane */
     #tripane .tab .button_icon { visibility: hidden; position: absolute; }
     .panel_select { width: 150px; }

@@ -14,7 +14,7 @@ import {
     carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG, shareSVG, pixelCarrotIconPNG
 } from "../assets/assets"
 
-export default function GameSection({Player, earnCarrots,settings={},cosmeticData={}}){
+export default function GameSection({Player, earnCarrots, setMenu, dialog, settings={}, cosmeticData={}}) {
     // Store click speed
     const [clickSpeed, setClickSpeed] = useState(0);
     const [bestClickSpeed, setBestClickSpeed] = useState(0);
@@ -151,7 +151,11 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
                 {/* <!-- Prestige button --> */}
                 <GameButton name={"???" ?? "Prestige"} icon={pixelCarrotIconPNG} onClick={"openPrestigeMenu()"} buttonDisabled={true} />
                 {/* <GameButton name="Inventory" icon={backpackSVG} onClick={"openInventory()"} /> */}
-                <GameButton name="Tips" icon={lightBulbSVG} onClick={null} />
+                <GameButton name="Tips" icon={lightBulbSVG} onClick={() => {
+                    dialog("Test", "This is a test", "Done testing", "button_gold", () => {
+                        setMenu(false); earnCarrots(100);
+                    });
+                }} />
                 <GameButton name="Hardmode" icon={medalPNG} onClick="openDifficultyMenu()" classes="button_red" />
                 {/* <GameButton name="Share your progress" icon={shareSVG} onClick="shareProgress()" /> */}
             </div>

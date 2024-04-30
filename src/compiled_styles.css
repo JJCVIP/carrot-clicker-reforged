@@ -417,7 +417,6 @@ summary:hover {
   top: 0;
   left: 0;
   z-index: 200;
-  visibility: hidden;
   backdrop-filter: blur(30px) saturate(20%);
 }
 #backdrop {
@@ -433,8 +432,12 @@ summary:hover {
 }
 /* .dialog_animate { animation: dialog 0.25s ease-out; }
 @keyframes dialog { from {transform: translate(-50%, calc(-50% + 20px));} } */
+#dialog_buttons {
+  display: flex;
+  gap: 6px;
+}
 #dialog button {
-  width: 49%;
+  width: 100%;
 }
 #dialog h2,
 #dialog p {
@@ -478,7 +481,6 @@ summary:hover {
   width: 112px;
   margin-left: auto;
   border-radius: 100px;
-  visibility: hidden;
   transition: filter 0.1s;
 }
 #toasts_clear:hover {
@@ -2837,10 +2839,6 @@ footer .user_card {
 }
 /* 460px - mobile small*/
 @media only screen and (max-width: 460px) {
-  /* Overlay */
-  #overlay {
-    height: 100vh;
-  }
   /* Tripane */
   #tripane .tab .button_icon {
     visibility: hidden;
