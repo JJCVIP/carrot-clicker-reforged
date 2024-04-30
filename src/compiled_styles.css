@@ -1264,12 +1264,12 @@ body.hide_nav #game_nav {
   color: var(--text);
   float: right;
 }
-.mini_stats .mini_item .Carrot_Count {
-  color: var(--text);
-  font-size: 20pt;
+.mini_stats > p {
   text-align: center;
 }
-.mini_stats > p {
+.Carrot_Count {
+  color: var(--text);
+  font-size: 20pt;
   text-align: center;
 }
 /* Main buttons */
