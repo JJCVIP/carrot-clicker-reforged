@@ -11,8 +11,7 @@ import { DisplayRounded } from "../carrot_utilities.mjs";
 
 // Assets
 import {
-    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG,
-    shareSVG
+    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG, shareSVG, pixelCarrotIconPNG
 } from "../assets/assets"
 
 export default function GameSection({Player, earnCarrots,settings={},cosmeticData={}}){
@@ -150,7 +149,7 @@ export default function GameSection({Player, earnCarrots,settings={},cosmeticDat
             {/* Game Buttons */}
             <div class="main_buttons flex">
                 {/* <!-- Prestige button --> */}
-                <GameButton name={"???" ?? "Prestige"} icon={carrotPNG} onClick={"openPrestigeMenu()"} buttonDisabled={true} />
+                <GameButton name={"???" ?? "Prestige"} icon={pixelCarrotIconPNG} onClick={"openPrestigeMenu()"} buttonDisabled={true} />
                 {/* <GameButton name="Inventory" icon={backpackSVG} onClick={"openInventory()"} /> */}
                 <GameButton name="Tips" icon={lightBulbSVG} onClick={null} />
                 <GameButton name="Hardmode" icon={medalPNG} onClick="openDifficultyMenu()" classes="button_red" />

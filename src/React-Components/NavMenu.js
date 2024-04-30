@@ -64,7 +64,7 @@ export default function NavMenu(){
                 </div>
             </a>
 
-            <a href="https://www.notkal.com/posts/carrot-clicker-changelog/" target="_blank" rel="noopener noreferrer" tabIndex="0">
+            <a href="https://notkal.com/posts/carrot-clicker-changelog/" target="_blank" rel="noopener noreferrer" tabIndex="0">
                 <div className="menu_item link_styling secondary_text">
                     <img src={refreshSVG} alt="" className="dropdown_img"/>
                     Changelog
@@ -80,7 +80,7 @@ export default function NavMenu(){
                 </div>
             </a>
 
-            <a href="https://www.notkal.com/about/#privacy" target="_blank" rel="noopener noreferrer" tabIndex="0">
+            <a href="https://notkal.com/about/#privacy" target="_blank" rel="noopener noreferrer" tabIndex="0">
                 <div className="menu_item link_styling secondary_text">
                     Privacy Policy
                     <img src={externalSVG} alt="(External)" className="dropdown_img right_img"/>
