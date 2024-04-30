@@ -137,7 +137,9 @@ export default function GameSection({Player, earnCarrots, setMenu, dialog, setti
                 </div>
 
                 <div className="row flex">
-                    <GameInfoBox name={"Coins"} value={"N/A"} tooltip={"For every tome page you have you will recieve a +1% (or more) golden carrot bonus when prestiging. Earn additional tome pages by completing achievements!"}/>
+                    <GameInfoBox name={"Coins"} value={"N/A"}
+                        tooltip={"While clicking the carrot there is a chance that coins will drop instead of carrots. Make sure to grab them!"}
+                        prefix={<span class="color_cash">⚬</span>} />
                 </div>
             </div>
 
