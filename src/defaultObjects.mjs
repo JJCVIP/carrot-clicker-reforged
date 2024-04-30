@@ -9,9 +9,6 @@ import statsTracker from "./classes/StatsTracker.mjs"
 // Functioms
 import { clone } from "./carrot_utilities.mjs";
 
-// Assets
-import { billPNG, bellePNG, gregPNG } from "./assets/assets.js";
-
 //default keybinds
 export const keybinds_default = {
     // Gameplay
@@ -99,7 +96,7 @@ export const default_Boomer_Bill = new Farmer(
     "Boomer_Bill", //name -- for refrence in code, if you want to display name use .fullName
     "Boomer Bill", //Full Name
     "Bill", //Nickname
-    billPNG, //avatar (img)
+    "/assets/characters/Bill.png", //avatar (img)
     false, //Wether Locked or not
     1, //lvl (integer)
     100, //lvl up price (float)
@@ -119,7 +116,7 @@ export const default_Belle_Boomerette = new Farmer(
     "Belle_Boomerette", //name -- for reference in code, if you want to display name use .fullName
     "Belle Boomerette", //Full Name
     "Belle", //Nickname
-    bellePNG, //avatar (img)
+    "/assets/characters/Belle.png", //avatar (img)
     false, //Wether Locked or not
     0, //lvl (integer)
     250, //lvl up price (float)
@@ -139,7 +136,7 @@ export const default_Greg = new Blacksmith(
     "Greg The Black", //Full Name
     "Greg", //Nickname
     false, //Wether Locked or not
-    gregPNG, //avatar (img)
+    "/assets/characters/Greg.png", //avatar (img)
     0, //lvl (int)
     5000, //lvl up price (float)
     5000, //basePrice
@@ -157,7 +154,7 @@ export const default_Greg = new Blacksmith(
 
 )
 
-export const default_Charles = new Scholar("charles",'./assets/characters/Charles.png',)
+export const default_Charles = new Scholar("charles",'/assets/assets/characters/Charles.png',)
 // default_Charles.improvedFarmingPracticeTome = new Tome(0,1,22025);
 // default_Charles.improveCraftsmanshipTome    = new Tome(0,1,22025);
 // default_Charles.cheaperSteelTome            = new Tome(0,1,22025);
@@ -168,7 +165,7 @@ export const default_Jared = {
     // Info
     name: "Jared",
     nickname: "Jared",
-    img: './assets/characters/Jared.png',
+    img: '/assets/assets/characters/Jared.png',
 
     // Shop player data
     data: {

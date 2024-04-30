@@ -4,15 +4,15 @@
 
 /* @font-face kit by Fonts2u (https://fonts2u.com) */
 /* From https://fonts2u.com/minecraft-regular.font */
-@font-face {
-    font-family: "Minecraft Regular";
-    src: url("./assets/fonts/1_Minecraft-Regular.eot?") format("eot"),
-         url("./assets/fonts/1_Minecraft-Regular.woff") format("woff"),
-         url("./assets/fonts/1_Minecraft-Regular.ttf") format("truetype"),
-         url("./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: "Minecraft Regular";
+//     src: url('./assets/fonts/1_Minecraft-Regular.eot?') format("eot"),
+//          url('./assets/fonts/1_Minecraft-Regular.woff') format("woff"),
+//          url('./assets/fonts/1_Minecraft-Regular.ttf') format("truetype"),
+//          url('./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular') format("svg");
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
 /* Variables */
 :root {
@@ -286,7 +286,7 @@ summary {
 .background_purple{ background: rgb(87, 61, 117) !important; }
 .background_brown, .background_dirt { background: rgb(78, 63, 52) !important; }
 /* Special Backgrounds */
-.background_dirt { background-image: url(./assets/Dirt-Background.jpg) !important; }
+.background_dirt { background-image: url('./assets/Dirt-Background.jpg') !important; }
 .background_rgb {
     background: black !important;
     background: linear-gradient(110deg, rgba(190,0,0,1) 0%, rgba(144,70,0,1) 15%, rgba(149,145,0,1) 30%, rgba(18,149,0,1) 45%, rgba(0,132,140,1) 60%, rgba(0,17,139,1) 75%, rgba(70,0,124,1) 87%, rgba(140,35,124,1) 100%) !important;
@@ -1227,7 +1227,7 @@ body.hide_nav #game_nav { display: none; }
 }
 .power_item img:hover,
 .power_item img:focus-visible {
-    content: url('./assets/icons/close_x.png');
+    content: url('./assets/close_x.png');
 }
 .boost_multiplier {
     padding-right: 7px;
@@ -1412,7 +1412,7 @@ body:not(.c_carl) .cosmetic_related .button_icon:not(.cosmetic_padlock) { displa
 body:not(.c_carl) .cosmetic_related .new_indicator { display: none; }
 body.c_carl .cosmetic_padlock { display: none; }
 body:not(.c_carl) .char_custom_button {
-    content: url(./assets/icons/padlock.svg);
+    content: url('./assets/padlock.svg');
     opacity: 0.5 !important;
 }
 

@@ -29,12 +29,6 @@
 }
 /* @font-face kit by Fonts2u (https://fonts2u.com) */
 /* From https://fonts2u.com/minecraft-regular.font */
-@font-face {
-  font-family: "Minecraft Regular";
-  src: url("./assets/fonts/1_Minecraft-Regular.eot?") format("eot"), url("./assets/fonts/1_Minecraft-Regular.woff") format("woff"), url("./assets/fonts/1_Minecraft-Regular.ttf") format("truetype"), url("./assets/fonts/1_Minecraft-Regular.svg#Minecraft-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 /* Variables */
 :root {
   /* Text */
@@ -376,7 +370,7 @@ summary:hover {
 }
 /* Special Backgrounds */
 .background_dirt {
-  background-image: url(./assets/Dirt-Background.jpg) !important;
+  background-image: url('./assets/Dirt-Background.jpg') !important;
 }
 .background_rgb {
   background: black !important;
@@ -1408,7 +1402,7 @@ body.hide_nav #game_nav {
 }
 .power_item img:hover,
 .power_item img:focus-visible {
-  content: url('./assets/icons/close_x.png');
+  content: url('./assets/close_x.png');
 }
 .boost_multiplier {
   padding-right: 7px;
@@ -1599,7 +1593,7 @@ body.c_carl .cosmetic_padlock {
   display: none;
 }
 body:not(.c_carl) .char_custom_button {
-  content: url(./assets/icons/padlock.svg);
+  content: url('./assets/padlock.svg');
   opacity: 0.5 !important;
 }
 /* Greg */

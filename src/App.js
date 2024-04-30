@@ -30,6 +30,10 @@ function App() {
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
     const [Settings, setSettings] = useState(default_settings);
+    function setTheme(theme="theme_dark") {
+        console.log(theme);
+        setSettings({...Settings, theme});
+    }
 
     // Multibuy
     //   const mbValues = [1,10,100];
@@ -196,7 +200,7 @@ function App() {
 
     //JSX
     return (
-        <>
+        <div id="app" className={Settings.theme}>
             <StatusBar player={Player} settings={Settings} />
 
             {/* Game section and Characters */}
@@ -218,8 +222,12 @@ function App() {
             </div>
 
             {/* Overlays */}
-            {menu === false ? null : <PopupMenu menu={menu} setMenu={setMenu} params={menuProps} />}
-        </>
+            {menu === false ? null :
+                <PopupMenu menu={menu} setMenu={setMenu} params={menuProps}
+                    Settings={Settings} setTheme={setTheme}
+                />
+            }
+        </div>
     );
 }
 

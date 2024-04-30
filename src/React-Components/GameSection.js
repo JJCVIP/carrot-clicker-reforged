@@ -9,11 +9,6 @@ import GameButton from "./GameButton";
 //functions
 import { DisplayRounded } from "../carrot_utilities.mjs";
 
-// Assets
-import {
-    carrotPNG, whiteCursorPNG, clockPNG, goldenCarrotPNG, tomePagePNG, cashPNG, questonMarkSVG, backpackSVG, lightBulbSVG, medalPNG, shareSVG, pixelCarrotIconPNG
-} from "../assets/assets"
-
 export default function GameSection({Player, earnCarrots, setMenu, dialog, settings={}, cosmeticData={}}) {
     // Store click speed
     const [clickSpeed, setClickSpeed] = useState(0);
@@ -108,7 +103,7 @@ export default function GameSection({Player, earnCarrots, setMenu, dialog, setti
         <div id="fallingCarrotsArea"></div>
 
         {/* Main Carrot */}
-        <img src={carrotPNG}
+        <img src="/assets/Carrot Clicker.png"
             onClick={()=>{
                 earnCarrots(Player.cpc,"cpc");
                 clickSpeedHandler(true);
@@ -126,10 +121,10 @@ export default function GameSection({Player, earnCarrots, setMenu, dialog, setti
                 {/* Mini info */}
                 <div className="row flex">
                     {/* <!-- CPC --> */}
-                    <GameInfoBox name={"CPC"} icon={whiteCursorPNG} value={DisplayRounded(Player.cpc)} tooltip={"Carrots Per Click"}/>
+                    <GameInfoBox name={"CPC"} icon="/assets/stats/cursor_white.png" value={DisplayRounded(Player.cpc)} tooltip={"Carrots Per Click"}/>
 
                     {/* <!-- CPS --> */}
-                    <GameInfoBox name={"CPS"} icon={clockPNG} value={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
+                    <GameInfoBox name={"CPS"} icon="/assets/stats/clock.png" value={DisplayRounded(Player.cps)} tooltip={"Carrots Per Second"}/>
                 </div>
                 <br/>
 
@@ -148,15 +143,16 @@ export default function GameSection({Player, earnCarrots, setMenu, dialog, setti
 
             {/* Game Buttons */}
             <div class="main_buttons flex">
-                {/* <!-- Prestige button --> */}
-                <GameButton name={"???" ?? "Prestige"} icon={pixelCarrotIconPNG} onClick={"openPrestigeMenu()"} buttonDisabled={true} />
+                <GameButton name={"???" ?? "Prestige"} icon="/assets/icons/pixel_carrot_white.png" onClick={"openPrestigeMenu()"} buttonDisabled={true} />
                 {/* <GameButton name="Inventory" icon={backpackSVG} onClick={"openInventory()"} /> */}
-                <GameButton name="Tips" icon={lightBulbSVG} onClick={() => {
-                    dialog("Test", "This is a test", "Done testing", "button_gold", () => {
-                        setMenu(false); earnCarrots(100);
-                    });
+                <GameButton name="Tips" icon="/assets/icons/lightbulb.svg" onClick={() => {
+                    // dialog("Test", "This is a test", "Done testing", "button_gold", () => {
+                    //     setMenu(false); earnCarrots(100);
+                    // });
+
+                    setMenu("themes");
                 }} />
-                <GameButton name="Hardmode" icon={medalPNG} onClick="openDifficultyMenu()" classes="button_red" />
+                <GameButton name="Hardmode" icon="/assets/icons/medal.png" onClick="openDifficultyMenu()" classes="button_red" />
                 {/* <GameButton name="Share your progress" icon={shareSVG} onClick="shareProgress()" /> */}
             </div>
 

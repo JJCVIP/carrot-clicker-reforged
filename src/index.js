@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
 // CSS
-import './compiled_styles.css';
+import './compiled_styles.css'
+import './compiled_themes.css'
 
 // Components
 import App from './App';

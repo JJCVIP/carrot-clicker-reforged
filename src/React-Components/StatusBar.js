@@ -1,9 +1,6 @@
 import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
-// Assets
-import { pixel_carrot_32x } from "../assets/assets"
-
 // Components
 import NavMenu from "./NavMenu";
 
@@ -58,7 +55,7 @@ export default function StatusBar({player, settings}){
             {/*<!-- Display when Javascript is turned off*/}
             <div className="basic_info flex">
                 <h1 className="main-icon-header">
-                        <img src={pixel_carrot_32x} alt="" id="main_icon" title="Carrot Clicker"/>
+                        <img src="/assets/pixel_carrot_32x.png" alt="" id="main_icon" title="Carrot Clicker"/>
                         Carrot Clicker
                 </h1>
 

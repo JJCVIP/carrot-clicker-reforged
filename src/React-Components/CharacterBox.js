@@ -2,7 +2,14 @@
 import { useState } from "react";
 
 // Assets
-import { paletteSVG, infoSVG, levelUpPNG, toolPNGs } from "../assets/assets";
+const toolPNGs = [
+    "/assets/tools/tool_0.png",
+    "/assets/tools/tool_1.png",
+    "/assets/tools/tool_2.png",
+    "/assets/tools/tool_3.png",
+    "/assets/tools/tool_4.png",
+    "/assets/tools/tool_5.png"
+]
 
 /** Component to display character interaction boxes
  * @param {{character: CharacterObject; equipTool: Function; Greg:GregObject}} 
@@ -23,8 +30,8 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
             <p>Upgrading Bill will increase your carrots per click (CPC) by one.</p>
 
         </div>
-        <img src={paletteSVG} alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onClick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
-        <img src={infoSVG} alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onClick="characterInfo('bill')" tabIndex="0" role="button" />
+        <img src="/assets/icons/palette.svg" alt="Customize" title="Cosmetics" className="button_icon char_mini_button char_custom_button" onClick="cosmeticSwitcher('bill')" tabIndex="0" role="button" />
+        <img src="/assets/icons/info.svg" alt="Info" title="Info" className="button_icon char_mini_button char_info_button" onClick="characterInfo('bill')" tabIndex="0" role="button" />
 
         {/* <!-- Top --> */}
         <div className="top flex">
@@ -46,7 +53,7 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
         {/* <!-- Bottom --> */}
         <div className="bottom">
 
-            <img src={levelUpPNG} id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onClick={()=>{levelUp(character,1)}} title="Level up" tabIndex="0" role="button" />
+            <img src="/assets/icons/lvl_up_arrow.png" id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onClick={()=>{levelUp(character,1)}} title="Level up" tabIndex="0" role="button" />
 
             {/* Tools */}
             {character.Hoes.map((amount, index) =>

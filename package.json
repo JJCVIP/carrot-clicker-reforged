@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "less": "lessc ./styles.less ./src/compiled_styles.css",
+    "less": "lessc ./styles.less ./src/compiled_styles.css && lessc ./themes.less ./src/compiled_themes.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
