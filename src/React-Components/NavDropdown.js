@@ -7,9 +7,6 @@ export default function NavDropdown({ setMenu }){
         //panelChange(`settings-panel`)
         alert("Not yet implemeneted");
     }
-    function cosmeticSwitcher() {
-        alert("Not yet implemeneted");
-    }
     function startCredits() {
         alert("Not yet implemeneted");
     }
@@ -34,7 +31,7 @@ export default function NavDropdown({ setMenu }){
                     </div>
                 </a>
                 <hr className="vr"/>
-                <a onClick={cosmeticSwitcher} tabIndex="0">
+                <a onClick={() => setMenu("cosmetics")} tabIndex="0">
                     <div className="menu_item link_styling secondary_text cosmetic_related">
                         <img src="/assets/icons/padlock.svg"  alt="" className="dropdown_img invert cosmetic_padlock"/>
                         <img src="/assets/icons/cosmetic.svg" alt="" className="dropdown_img invert"/>
@@ -51,7 +48,7 @@ export default function NavDropdown({ setMenu }){
                 </label>
             </div>
 
-            <a tabIndex="0" onClick={startCredits}>
+            <a tabIndex="0" onClick={() => setMenu("credits")}>
                 <div className="menu_item link_styling secondary_text">
                     Credits
                 </div>

@@ -1,10 +1,17 @@
-import { themes } from "../gamedata"
+// Components
+import Credits from "./Credits.js"
+
+// Data
+import { themes } from "../../gamedata.js"
 
 /** Popup menus */
 export default function PopupMenu({
     menu, setMenu, params={},
     Player, Settings, setTheme
 }) {
+    // Not implemented
+    const notImplemented = <div className="popup_box">{menu} Not implemented yet<br/><button onClick={close}>Close</button></div>;
+
 
     // MENUS JSX
     const menus = {
@@ -81,7 +88,14 @@ export default function PopupMenu({
 
         </div>,
 
-        cosmetics: <div className="popup_box">{menu} Not implemented yet<br/><button onClick={close}>Close</button></div>,
+        cosmetics: notImplemented,
+        keybinds: notImplemented,
+        prestige: notImplemented,
+        // inventory: notImplemented,
+        tips: notImplemented,
+
+        // Credits
+        credits: <Credits close={close} />
     }
 
     /** Close popup menu */

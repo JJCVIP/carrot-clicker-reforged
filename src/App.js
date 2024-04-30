@@ -15,7 +15,7 @@ import PlayerClass from './classes/Player.mjs'
 import { DisplayRounded, getLevelPrice } from './carrot_utilities.mjs';
 import Character from './classes/Character.mjs';
 import PriceArray from './classes/PriceArray.mjs';
-import PopupMenu from './React-Components/PopupMenu';
+import PopupMenu from './React-Components/popup/PopupMenu';
 
 
 function App() {

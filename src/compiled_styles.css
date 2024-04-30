@@ -99,6 +99,9 @@ body {
   margin: 0;
   padding: 0;
 }
+body:has(#overlay) {
+  overflow-y: hidden;
+}
 p {
   margin: 0;
 }
@@ -955,9 +958,6 @@ body:not(.theme_light) .theme_checkmark {
   width: 119px;
 }
 /* Game Nav */
-body.hide_nav #game_nav {
-  display: none;
-}
 #game_nav {
   position: fixed;
   bottom: 12px;
@@ -2673,7 +2673,6 @@ footer .user_card {
   left: 50%;
   transform: translateX(-50%);
   white-space: pre-line;
-  display: none;
 }
 #credits h1,
 #credits h2,
