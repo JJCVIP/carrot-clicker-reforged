@@ -152,7 +152,7 @@ export default function GameSection({Player, earnCarrots, setMenu, dialog, setti
                     //     setMenu(false); earnCarrots(100);
                     // });
 
-                    setMenu("themes");
+                    setMenu("tips");
                 }} />
                 <GameButton name="Hardmode" icon="/assets/icons/medal.png" onClick="openDifficultyMenu()" classes="button_red" />
                 {/* <GameButton name="Share your progress" icon={shareSVG} onClick="shareProgress()" /> */}

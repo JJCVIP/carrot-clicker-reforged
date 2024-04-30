@@ -3,12 +3,28 @@ import Credits from "./Credits.js"
 
 // Data
 import { themes } from "../../gamedata.js"
+import { useEffect } from "react";
 
 /** Popup menus */
 export default function PopupMenu({
     menu, setMenu, params={},
     Player, Settings, setTheme
 }) {
+    // Escape key
+    useEffect(() => {
+        // Keydown
+        const handleKeydown = ({key}) => {
+            if(key === "Escape") close();
+        }
+
+        // Listener
+        document.addEventListener('keydown', handleKeydown);
+
+        // Dismount
+        return () => document.removeEventListener('keydown', handleKeydown);
+    }, [])
+
+
     // Not implemented
     const notImplemented = <div className="popup_box">{menu} Not implemented yet<br/><button onClick={close}>Close</button></div>;
 
