@@ -49,22 +49,20 @@ export default function CharacterBox({character,  Greg, levelUp, equipTool}){
             <img src={levelUpPNG} id="bill_level_up" className="levelupimg" alt="Upgrade Boomer Bill" onClick={()=>{levelUp(character,1)}} title="Level up" tabIndex="0" role="button" />
 
             {/* Tools */}
-            {
-                character.Hoes.map((amount, index) =>
-                    <>
-                        <p className="toolnumber" id={`bill_tool_${index}_number`}>{amount}</p>
-                        <img
-                            src={toolPNGs[index]}
-                            onClick={()=>{equipTool(character,index,1)}}
-                            className={`
-                                toolicon tool_${index}
-                                ${(amount>0 ? " " : "blackedout ") + (Greg.Hoes[index]>0 ? "glowing" : "")}
-                            `}
-                            id={`bill_tool_${index}`} tabIndex="0" role="button" alt="PLACEHOLDER"
-                        />
-                    </>
-                )
-            }
+            {character.Hoes.map((amount, index) =>
+                <>
+                    <p className="toolnumber" id={`bill_tool_${index}_number`}>{amount || ''}</p>
+                    <img
+                        src={toolPNGs[index]}
+                        onClick={()=>{equipTool(character,index,1)}}
+                        className={`
+                            toolicon tool_${index}
+                            ${(amount>0 ? " " : "blackedout ") + (Greg.Hoes[index]>0 ? "glowing" : "")}
+                        `}
+                        id={`bill_tool_${index}`} tabIndex="0" role="button" alt="PLACEHOLDER"
+                    />
+                </>
+            )}
         </div>
     </div>
     )
