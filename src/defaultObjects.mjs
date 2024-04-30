@@ -9,7 +9,7 @@ import statsTracker from "./classes/StatsTracker.mjs"
 // Functioms
 import { clone } from "./carrot_utilities.mjs";
 
-//default keybinds
+// Default keybinds
 export const keybinds_default = {
     // Gameplay
     key_carrot:         'Spacebar',
@@ -46,8 +46,8 @@ export const keybinds_default = {
     key_pane_settings:     'D',
 }
 
-//default settings
-export const default_settings={
+// Default settings
+export const default_settings = {
     notificationLength: 6,      // number - Time in seconds
     enable_keybinds: true,     // boolean
     autosave_interval: 5,

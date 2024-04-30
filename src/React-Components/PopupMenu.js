@@ -3,10 +3,10 @@ import { themes } from "../gamedata"
 /** Popup menus */
 export default function PopupMenu({
     menu, setMenu, params={},
-    Settings, setTheme
+    Player, Settings, setTheme
 }) {
 
-    // MENUS
+    // MENUS JSX
     const menus = {
         dialog:
         <div id="dialog" class="popup_box">
@@ -49,7 +49,8 @@ export default function PopupMenu({
             {/* <!-- List --> */}
             <div id="themes_list" class="fancy_list">
                 {Object.entries(themes).map(([key, theme], index) => {
-                    return (
+                    return Player.themes.includes(key) ?
+                        // Unlocked
                         <div key={index} class="theme_item flex" onClick={() => { setTheme(key); }} tabindex="0" role="button">
                             <img
                                 src={`/assets/theme/${key}.png`} alt=""
@@ -66,11 +67,21 @@ export default function PopupMenu({
                                 }
                             </div>
                         </div>
-                    )
-                })}
+                        :
+                        // Locked
+                        <div class="theme_item flex achievement_locked" title="Locked" tabindex="0" role="button">
+                            <img src="./assets/locked_transparent.png" alt="img" class="theme_preview"/>
+                            <div>
+                                <h3>???</h3>
+                                <p class="secondary_text">Locked</p>
+                            </div>
+                        </div>
+        })}
             </div>
 
-        </div>
+        </div>,
+
+        cosmetics: <div className="popup_box">{menu} Not implemented yet<br/><button onClick={close}>Close</button></div>,
     }
 
     /** Close popup menu */

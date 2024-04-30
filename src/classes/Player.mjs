@@ -93,6 +93,10 @@ export default class PlayerClass {
         for(let [key, value] of Object.entries(data)) this[key] = value;
     }
 
+    // hasTheme(key) {
+    //     return this.themes.includes(key);
+    // }
+
     speak(){
         console.log('hello world');
     }

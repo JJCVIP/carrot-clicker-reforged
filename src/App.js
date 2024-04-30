@@ -30,8 +30,9 @@ function App() {
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
     const [Settings, setSettings] = useState(default_settings);
+
+    /** Set theme */
     function setTheme(theme="theme_dark") {
-        console.log(theme);
         setSettings({...Settings, theme});
     }
 
@@ -201,7 +202,7 @@ function App() {
     //JSX
     return (
         <div id="app" className={Settings.theme}>
-            <StatusBar player={Player} settings={Settings} />
+            <StatusBar player={Player} settings={Settings} setMenu={setMenu} />
 
             {/* Game section and Characters */}
             <div id="container" className="flex">
@@ -224,7 +225,7 @@ function App() {
             {/* Overlays */}
             {menu === false ? null :
                 <PopupMenu menu={menu} setMenu={setMenu} params={menuProps}
-                    Settings={Settings} setTheme={setTheme}
+                    Player={Player} Settings={Settings} setTheme={setTheme}
                 />
             }
         </div>

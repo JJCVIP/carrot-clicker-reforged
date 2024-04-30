@@ -1,13 +1,10 @@
 import React from "react"
 
-export default function NavMenu(){
+export default function NavDropdown({ setMenu }){
 
     // Functions
     function handleSettingsClick(){
         //panelChange(`settings-panel`)
-        alert("Not yet implemeneted");
-    }
-    function themeSwitcher() {
         alert("Not yet implemeneted");
     }
     function cosmeticSwitcher() {
@@ -30,7 +27,7 @@ export default function NavMenu(){
 
 
             <div className="flex">
-                <a onClick={themeSwitcher} tabIndex="0">
+                <a onClick={() => setMenu("themes")} tabIndex="0">
                     <div className="menu_item link_styling secondary_text">
                         <img src="/assets/icons/palette.svg" alt="" className="dropdown_img invert"/>
                         Themes

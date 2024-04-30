@@ -2,14 +2,14 @@ import React from "react"
 import { useState, useEffect, useRef, useCallback } from "react";
 
 // Components
-import NavMenu from "./NavMenu";
+import NavDropdown from "./NavDropdown";
 
 // Tip data
 import { tips } from "../defaultObjects.mjs";
 tips.fun_starter[tips.fun_starter.findIndex(e => e === '%onlyon%')] = `Only on ${window.location.host}`; // Only on [website name] tip
 
 
-export default function StatusBar({player, settings}){
+export default function StatusBar({ player, settings, setMenu }){
     const [tipDisplayed,changeTipDisplayed] = useState("Click The Carrot"); 
     const tipInterval = useRef(null);
     
@@ -64,7 +64,7 @@ export default function StatusBar({player, settings}){
 
                 <div id="info_dropdown" tabIndex="0">
                     ▼
-                    <NavMenu/>
+                    <NavDropdown setMenu={setMenu} />
                 </div>
             </div>
        </div>
