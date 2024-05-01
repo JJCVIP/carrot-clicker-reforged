@@ -6,6 +6,7 @@ import StatusBar from './React-Components/StatusBar';
 import GameSection from './React-Components/GameSection';
 import CharacterSection from './React-Components/CharacterSection';
 import GameInfoBox from './React-Components/GameInfoBox';
+import ToastContainer from './ToastContainer'
 
 //import objects
 import { default_settings, default_Boomer_Bill, default_Greg, default_Belle_Boomerette, default_Charles, default_Jared } from './defaultObjects.mjs';
@@ -17,6 +18,8 @@ import Character from './classes/Character.mjs';
 import PriceArray from './classes/PriceArray.mjs';
 import PopupMenu from './React-Components/popup/PopupMenu';
 
+let toastID = 0;
+
 
 function App() {
     // User interface
@@ -26,6 +29,45 @@ function App() {
         setMenuProps({ title, description, buttonName, buttonStyle, button_action });
         setMenu("dialog");
     }
+
+    // Toasts
+    const [toasts, setToasts] = useState({});
+    function toast(data={}) {
+        console.log(toastID);
+        let modified = {...toasts};
+        modified[toastID] = data;
+        setToasts(modified);
+        toastID++;
+    }
+    
+    // on mount
+    useEffect(() => {
+        
+        // Debug
+        toast({
+            title: "TITLE",
+            desc: "descriptione"
+        });
+        toast({
+            title: "dos",
+            desc: "descriptione"
+        });
+        toast({
+            title: "tres",
+            desc: "descriptione"
+        });
+
+        // Keydown
+        const onKeydown = ({ key }) => {
+            console.log(key);
+        }
+
+        document.addEventListener('keydown', onKeydown);
+
+        // Unmount
+        return () => document.removeEventListener('keydown', onKeydown);
+
+    }, [])
 
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
@@ -202,6 +244,10 @@ function App() {
     //JSX
     return (
         <div id="app" className={Settings.theme}>
+            {/* Toast notifications */}
+            <ToastContainer toasts={toasts} setToasts={setToasts} />
+
+            {/* Status Bar */}
             <StatusBar player={Player} settings={Settings} setMenu={setMenu} />
 
             {/* Game section and Characters */}
