@@ -12,14 +12,14 @@ export default class PriceArray{
     #currentPosition;
     #size;
 
-    constructor(defaultPrice, priceScaling, currentPosition, Charles, Jared){
+    constructor(defaultPrice, priceScaling, currentPosition, Charles=null, Jared=null){
         this.#defaultPrice = defaultPrice;
         this.#priceScaling = priceScaling;
         this.#Charles = Charles;
         this.#Jared = Jared;
         this.#currentPosition = currentPosition;
         this.#size = (this.currentPosition+2000);
-        this.#content=this.#constructArray();
+        if(this.#Charles && this.#Jared) this.#content=this.#constructArray();
     }
 
     /**
@@ -36,10 +36,22 @@ export default class PriceArray{
         return this.#size;
     }
 
+    /**
+     * Gets the array
+     */
     get content(){
         return this.#content;
     }
     
+    initializeCharlesAndJared(Charles, Jared){
+        if(!this.#Charles) this.#Charles = Charles;
+        else console.warn("Charles already initialized");
+        if(!this.#Jared) this.#Jared = Jared;
+        else console.warn("Jared already initialized");
+
+        this.#constructArray();
+    }
+
     /**
      * finds the price of one or more upgrades
      * @param {Number} amount 

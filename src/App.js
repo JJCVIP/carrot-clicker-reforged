@@ -185,13 +185,13 @@ function App() {
      */
     function levelUp(character, amount) {
         //Gets the level up price of the character
-        const totalCost = getLevelPrice(character, amount, null, null);
+        const totalCost = character.PriceArray.qu
 
         //if the Player does not have enough carrots immedietly return;
         if (Player.carrots < totalCost) return;
 
         //character setter, need character.name the incode refrence name for the hashmap
-        characterMap[character.name](
+        characterMap[character.name](   
             { ...character, lvl: character.lvl + amount }
         )
 

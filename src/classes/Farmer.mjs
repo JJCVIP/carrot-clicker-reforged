@@ -1,5 +1,5 @@
 import Character from "./Character.mjs";
-
+import PriceArray from "./PriceArray.mjs";
 export default class Farmer extends Character{
     /**
      * Produces Carrots
@@ -18,6 +18,7 @@ export default class Farmer extends Character{
         this.scaling=scaling;
         this.Hoes=Hoes;
         this.version=1;
+        this.PriceArray = new PriceArray(this.basePrice, this.scaling, this.lvl);
     }
 
     /** Calculates Carrots Per Click or Per Second Based on inputing Bill or Belle
