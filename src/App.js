@@ -111,9 +111,20 @@ function App() {
     }
 
     // Creates price arrays for characters and tools
-    const BillPriceArrayRef = useRef(new PriceArray(Boomer_Bill.basePrice, Boomer_Bill.scaling, Boomer_Bill.lvl, Charles, Jared));
-    const BellePriceArrayRef = useRef(new PriceArray(Belle_Boomerette.basePrice, Belle_Boomerette.scaling, Belle_Boomerette.lvl, Charles, Jared));
-    const GregPriceArrayRef = useRef(new PriceArray(Greg.basePrice, Greg.scaling, Greg.lvl, Charles, Jared));
+    function ConstructPriceArray(character){
+        const priceArray = new PriceArray(character.basePrice, character.scaling, character.lvl, Charles, Jared);
+        characterMap[character.name]({...character, PriceArray: priceArray});
+        console.log(character.PriceArray.content);
+    }
+    useEffect(()=>{
+
+       ConstructPriceArray(Boomer_Bill);
+       console.log(Boomer_Bill.PriceArray.content);
+       const BillPriceArray = new PriceArray(Boomer_Bill.basePrice, Boomer_Bill.scaling, Boomer_Bill.lvl, Charles, Jared);
+       setBelle_Boomerette({...Boomer_Bill, PriceArray:BillPriceArray});
+       console.log(Boomer_Bill.PriceArray.content);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     /** Sets an event loop to update carrots at 20fps */
     useEffect(() => {

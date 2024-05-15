@@ -18,7 +18,7 @@ export default class Farmer extends Character{
         this.scaling=scaling;
         this.Hoes=Hoes;
         this.version=1;
-        this.PriceArray = new PriceArray(this.basePrice, this.scaling, this.lvl);
+        this.PriceArray = new PriceArray(this.basePrice,this.scaling, this.lvl);
     }
 
     /** Calculates Carrots Per Click or Per Second Based on inputing Bill or Belle
