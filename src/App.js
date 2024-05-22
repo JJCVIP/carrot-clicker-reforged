@@ -33,41 +33,21 @@ function App() {
     // Toasts
     const [toasts, setToasts] = useState({});
     function toast(data={}) {
-        console.log(toastID);
         let modified = {...toasts};
         modified[toastID] = data;
         setToasts(modified);
         toastID++;
+
+        console.log(toasts);
+
+        return toastID;
     }
-    
-    // on mount
-    useEffect(() => {
-        
-        // Debug
-        toast({
-            title: "TITLE",
-            desc: "descriptione"
-        });
-        toast({
-            title: "dos",
-            desc: "descriptione"
-        });
-        toast({
-            title: "tres",
-            desc: "descriptione"
-        });
-
-        // Keydown
-        const onKeydown = ({ key }) => {
-            console.log(key);
-        }
-
-        document.addEventListener('keydown', onKeydown);
-
-        // Unmount
-        return () => document.removeEventListener('keydown', onKeydown);
-
-    }, [])
+    function closeToast(id) {
+        if(toasts[id] === undefined) return;
+        let modified = {...toasts};
+        delete modified[id];
+        setToasts(modified);
+    }
 
     /*-----setting State objects-----*/
     const [Player, setPlayer] = useState(new PlayerClass());
@@ -125,6 +105,60 @@ function App() {
         }, 50);
 
         return () => clearInterval(intervalId);
+    }, [])
+
+    // On mount (Tutorial)
+    useEffect(() => {
+        let ttID, ctID;
+
+        // Cookie usage notification
+        if(Player.flags['cookies_accepted'] !== true) {
+            ctID = toast({
+                title: 'Cookies & Privacy',
+                desc: <>By clicking accept you agree to the usage of cookies to save your progress. If you choose not to click accept your progress will not be saved. <a href="https://www.notkal.com/about/#privacy" target="_blank" rel="noreferrer">Privacy Policy</a></>,
+                color: 'purple',
+                persistent: true,
+                // replaceable: false,
+                // achievement: false,
+                hide_close: true,
+                buttons: [
+                    {
+                        name: 'Accept',
+                        action: () => {
+                            Player.flags['cookies_accepted'] = true;
+                            // saveGame();
+                        },
+                        closes: true
+                    }
+                ]
+            });
+        }
+        
+        // Tutorial message
+        if(Player.flags.tutorial0 !== true) {
+            ttID = toast({
+                title: "Welcome to Carrot Clicker!",
+                desc: "Click the carrot to farm. Spend your carrots on hiring/upgrading new workers. Eventually you will be able to buy them better tools to work with. Good luck!",
+                tutorial: true,
+                persistent: true
+            });
+            Player.flags.tutorial0 = true;
+        }
+
+        // Keydown
+        const onKeydown = (event) => {
+            const key = event.key.toUpperCase();
+            console.log(key);
+        }
+
+        document.addEventListener('keydown', onKeydown);
+
+        // Unmount
+        return () => {
+            document.removeEventListener('keydown', onKeydown);
+            closeToast(ttID);
+            closeToast(ctID);
+        };
     }, [])
 
     /** Updates the Players Carrots per Click based on Bill, Charles, and Jared items
@@ -245,7 +279,7 @@ function App() {
     return (
         <div id="app" className={Settings.theme}>
             {/* Toast notifications */}
-            <ToastContainer toasts={toasts} setToasts={setToasts} />
+            <ToastContainer toasts={toasts} setToasts={setToasts} closeToast={closeToast} />
 
             {/* Status Bar */}
             <StatusBar player={Player} settings={Settings} setMenu={setMenu} />
